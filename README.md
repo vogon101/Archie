@@ -41,7 +41,8 @@ The language has a number of influences both syntactically and conceptually
 ```scala
 class Person (name, yearOfBirth) {
     
-    this.age = () => {    return currentYear - yearOfBirth;
+    this.age = () => {
+      return currentYear - yearOfBirth;
     }
     
     this.apply = () => {
