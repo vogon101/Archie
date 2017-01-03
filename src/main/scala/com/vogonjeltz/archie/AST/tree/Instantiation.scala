@@ -1,4 +1,5 @@
-package com.vogonjeltz.archie.AST
+package com.vogonjeltz.archie.AST.tree
+
 import com.vogonjeltz.archie.AST.treeWalk.ASTVisitor
 
 /**

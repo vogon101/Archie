@@ -1,5 +1,5 @@
 package com.vogonjeltz.archie.parsing.visitor
-import com.vogonjeltz.archie.AST.Element
+import com.vogonjeltz.archie.AST.tree.Element
 import com.vogonjeltz.archie.parsing.antlr.archieParser.{ElementListContext, NameListContext}
 
 import scala.collection.JavaConversions._

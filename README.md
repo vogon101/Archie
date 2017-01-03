@@ -18,6 +18,22 @@ possible. The core of the language is in the Parsing and Runtime sub-systems whi
 execution of archie code. The Parser takes in code and produces an Abstract Syntax Tree
 which can then be executed
 
+### Internal
+Internally the language is represented by an AST. This is a wrapper on `List[Line]`. A `Line` is
+one of three things:
+* `Comment` - A one line comment
+* `ClassDef` - A class definition 
+* `Element` - The core atom of the library
+
+Anything that isn't a direct subtype of `Line` will be an Element. The main difference is that an
+Element must return a value (even if it is a void) when run whilst a Line does not. This may change
+in the future. The AST is immutable and has no knowledge of state so the only way to use it is to
+traverse it. The Archie core library provides two ways of doing this: `ASTTransform` and `ASTVisitor`.
+`ASTVisitor` is an implementation of the visitor pattern whilst `ASTTransform` uses an anonymous function
+ which assumes pattern matching.
+ 
+ Interpretation is implemented as an `ASTVisitor` with all the state separated from the actual tree.
+
 ## The language
 The language has a number of influences both syntactically and conceptually
 
@@ -77,6 +93,24 @@ freddie += 2
 println(freddie.yearOfBirth) //prints 2002
 println(newFreddie.yearOfBirth) //Prints 2001
 ```
+
+##Roadmap
+- ~~Parsing~~
+- ~~Visitor and Transform Framework~~
+- ~~Simple File Application for testing~~
+- Interpreter
+    - Type Backend
+    - Element Implementations
+    - Standard Library
+- API
+- Optimisation framework
+- Custom IL Compiler (writes the AST to a file as an intermediate representation that is easy to parse,
+improving speed when running code
+- Online try-out site
+
+##TODO:
+* Allow comments inside of a `CodeBlock`
+    * Perhaps make comments some sort of element
 
 ##Contributing
 I will not be accepting contributions at the moment as this is a project for school

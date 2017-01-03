@@ -1,6 +1,7 @@
 package com.vogonjeltz.archie.test
 
 import com.vogonjeltz.archie.AST._
+import com.vogonjeltz.archie.AST.tree.{Assignment, Line, StringLiteral}
 import com.vogonjeltz.archie.AST.treeWalk.{ASTTransform, ASTTransformVisitor, ASTVisitor}
 
 /**

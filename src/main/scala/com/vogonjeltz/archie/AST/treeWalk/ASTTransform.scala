@@ -1,6 +1,7 @@
 package com.vogonjeltz.archie.AST.treeWalk
 
 import com.vogonjeltz.archie.AST._
+import com.vogonjeltz.archie.AST.tree.{AST, Comment, Element, Line}
 
 /**
   * Created by Freddie on 03/01/2017.

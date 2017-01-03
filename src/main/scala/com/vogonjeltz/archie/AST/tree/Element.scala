@@ -1,4 +1,4 @@
-package com.vogonjeltz.archie.AST
+package com.vogonjeltz.archie.AST.tree
 
 /**
   * Element

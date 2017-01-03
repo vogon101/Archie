@@ -1,6 +1,7 @@
 package com.vogonjeltz.archie.parsing.visitor
 
 import com.vogonjeltz.archie.AST._
+import com.vogonjeltz.archie.AST.tree._
 import com.vogonjeltz.archie.parsing.antlr.archieParser._
 
 import scala.collection.JavaConversions._
