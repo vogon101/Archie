@@ -1,4 +1,5 @@
-# Archie
+![logo](https://raw.githubusercontent.com/vogon101/Archie/master/images/logo.jpg "Logo")
+
 A simple programming language created in scala
 
 ## What is Archie
