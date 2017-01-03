@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/vogon101/Archie/master/images/logo.jpg "Logo")
+![logo](https://raw.githubusercontent.com/vogon101/Archie/master/images/Logo2.jpg "Logo")
 
 A simple programming language created in scala
 
