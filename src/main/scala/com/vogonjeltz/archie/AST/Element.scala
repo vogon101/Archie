@@ -7,7 +7,4 @@ package com.vogonjeltz.archie.AST
   */
 abstract class Element extends Line {
 
-  //TODO: Must return an instance
-  override def run()
-
 }

@@ -1,4 +1,5 @@
 package com.vogonjeltz.archie.AST
+import com.vogonjeltz.archie.AST.treeWalk.ASTVisitor
 
 /**
   * Identifier
@@ -7,16 +8,18 @@ package com.vogonjeltz.archie.AST
   */
 abstract class Identifier extends Element {
 
+  override def accept[T](astVisitor: ASTVisitor[T]) = astVisitor.visitIdentifier(this)
+
 }
 
 case class CompositeID(element: Element, textID: TextID) extends Identifier {
-
-  def run() = ???
 
 }
 
 case class TextID(resolvePath: List[String]) extends Identifier {
 
-  def run() = ???
+}
+
+case class NewTextID(resolve: String) extends Identifier {
 
 }

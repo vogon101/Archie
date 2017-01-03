@@ -1,0 +1,7 @@
+class ThisIsAClass () {
+    this.other = () => this.that
+    this.that = ""
+    this other that
+}
+
+new ThisIsAClass()

@@ -1,5 +1,7 @@
 package com.vogonjeltz.archie.AST
 
+import com.vogonjeltz.archie.AST.treeWalk.ASTVisitor
+
 /**
   * AST
   *
@@ -7,26 +9,18 @@ package com.vogonjeltz.archie.AST
   */
 class AST(val lines: List[Line]) {
 
-  override def toString: String = "AST : " + lines.toString()
+  override def toString: String = "AST : \n" + lines.map(L => L.toString + "\n").mkString
 
 }
 
-abstract class Line {
+trait Line {
 
-  def run()
-
-}
-
-case class Assignment(id: Identifier, value: Element) extends Line {
-
-  def run() = ???
+  def accept[T](astVisitor: ASTVisitor[T]): T
 
 }
 
 case class Comment(text: String) extends Line {
 
-  def run() = {
-
-  }
+  override def accept[T](astVisitor: ASTVisitor[T]) = astVisitor.visitComment(this)
 
 }

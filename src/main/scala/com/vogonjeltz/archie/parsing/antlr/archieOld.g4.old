@@ -1,0 +1,54 @@
+grammar archieOld;
+// Parser Rules
+
+program:  line* EOF;
+
+line: (element | COMMENT)  (';' | '\n' | ';\n')+;
+
+//assignment: identifier  EQ  element;
+
+element:
+    //Function Call
+    element  elementList #functionCall
+
+    //Function Literal
+    | nameList  FARROW  element #functionLiteral
+
+    //Identifier
+    | identifier
+
+    //assignment
+    | identifier EQ element #assignment
+
+    | O_C_BRACK (element (';' | '\n' | ';\n'))* C_C_BRACK #codeBlock
+
+    | element name element #opFunctionCall;
+
+    //CombinedID
+    //element (DOT name)+
+
+
+elementList: O_R_BRACK  element?  (COMMA  element )* C_R_BRACK;
+
+identifier: (name (DOT name)*);
+
+nameList: O_R_BRACK name? (COMMA name)* C_R_BRACK;
+name: (ALPHABET+ (ALPHABET | NUMERIC)*) | SYMBOL+;
+
+NUMERIC: [0-9];
+ALPHABET: [a-zA-Z];
+SYMBOL : [~!$^*&+#<>?|];
+FARROW: '=>';
+WS: [ \t]+ -> skip;
+SKP: [\r]+ -> skip;
+COMMENT: '//' (ALPHABET | SYMBOL | NUMERIC | WS)*;
+
+DOT: '.';
+COMMA: ',';
+
+EQ: '=';
+
+O_R_BRACK: '(';
+C_R_BRACK: ')';
+O_C_BRACK: '{';
+C_C_BRACK: '}';
