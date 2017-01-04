@@ -1,6 +1,5 @@
-package com.vogonjeltz.archie.AST.treeWalk
+package com.vogonjeltz.archie.AST.TreeWalk
 
-import com.vogonjeltz.archie.AST._
 import com.vogonjeltz.archie.AST.tree._
 
 /**

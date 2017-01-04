@@ -126,31 +126,35 @@ public class archieParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(31);
+			setState(33);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__0) {
+			while (_la==T__0) {
+				{
 				{
 				setState(30);
 				match(T__0);
 				}
-			}
-
-			setState(36);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << CLASS) | (1L << STRING_LITERAL_TOKEN) | (1L << ALPHA_NUMERIC_NAME) | (1L << SYMBOL) | (1L << NUMERIC) | (1L << COMMENT) | (1L << O_R_BRACK) | (1L << O_C_BRACK))) != 0)) {
-				{
-				{
-				setState(33);
-				line();
 				}
-				}
-				setState(38);
+				setState(35);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
 			setState(39);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << CLASS) | (1L << STRING_LITERAL_TOKEN) | (1L << ALPHA_NUMERIC_NAME) | (1L << SYMBOL) | (1L << NUMERIC) | (1L << COMMENT) | (1L << EQ) | (1L << O_R_BRACK) | (1L << O_C_BRACK))) != 0)) {
+				{
+				{
+				setState(36);
+				line();
+				}
+				}
+				setState(41);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(42);
 			match(EOF);
 			}
 		}
@@ -197,25 +201,25 @@ public class archieParser extends Parser {
 		enterRule(_localctx, 2, RULE_line);
 		int _la;
 		try {
-			setState(54);
+			setState(57);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case CLASS:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(41);
+				setState(44);
 				classDef();
-				setState(43); 
+				setState(46); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(42);
+					setState(45);
 					match(T__0);
 					}
 					}
-					setState(45); 
+					setState(48); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( _la==T__0 );
@@ -228,19 +232,20 @@ public class archieParser extends Parser {
 			case ALPHA_NUMERIC_NAME:
 			case SYMBOL:
 			case NUMERIC:
+			case EQ:
 			case O_R_BRACK:
 			case O_C_BRACK:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(47);
+				setState(50);
 				element(0);
-				setState(49); 
+				setState(52); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(48);
+					setState(51);
 					_la = _input.LA(1);
 					if ( !(_la==T__0 || _la==T__1) ) {
 					_errHandler.recoverInline(this);
@@ -252,7 +257,7 @@ public class archieParser extends Parser {
 					}
 					}
 					}
-					setState(51); 
+					setState(54); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( _la==T__0 || _la==T__1 );
@@ -261,7 +266,7 @@ public class archieParser extends Parser {
 			case COMMENT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(53);
+				setState(56);
 				match(COMMENT);
 				}
 				break;
@@ -313,14 +318,14 @@ public class archieParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(56);
+			setState(59);
 			classHeader();
-			setState(58);
+			setState(61);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << STRING_LITERAL_TOKEN) | (1L << ALPHA_NUMERIC_NAME) | (1L << SYMBOL) | (1L << NUMERIC) | (1L << O_R_BRACK) | (1L << O_C_BRACK))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << STRING_LITERAL_TOKEN) | (1L << ALPHA_NUMERIC_NAME) | (1L << SYMBOL) | (1L << NUMERIC) | (1L << EQ) | (1L << O_R_BRACK) | (1L << O_C_BRACK))) != 0)) {
 				{
-				setState(57);
+				setState(60);
 				element(0);
 				}
 			}
@@ -369,11 +374,11 @@ public class archieParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(60);
+			setState(63);
 			match(CLASS);
-			setState(61);
+			setState(64);
 			match(ALPHA_NUMERIC_NAME);
-			setState(62);
+			setState(65);
 			nameList();
 			}
 		}
@@ -640,7 +645,7 @@ public class archieParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(102);
+			setState(105);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
@@ -649,11 +654,11 @@ public class archieParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(65);
+				setState(68);
 				match(O_R_BRACK);
-				setState(66);
+				setState(69);
 				element(0);
-				setState(67);
+				setState(70);
 				match(C_R_BRACK);
 				}
 				break;
@@ -662,11 +667,11 @@ public class archieParser extends Parser {
 				_localctx = new FunctionLiteralContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(69);
+				setState(72);
 				nameList();
-				setState(70);
+				setState(73);
 				match(FARROW);
-				setState(71);
+				setState(74);
 				element(7);
 				}
 				break;
@@ -675,7 +680,7 @@ public class archieParser extends Parser {
 				_localctx = new TextIDContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(73);
+				setState(76);
 				identifier();
 				}
 				break;
@@ -684,38 +689,38 @@ public class archieParser extends Parser {
 				_localctx = new CodeBlockContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(74);
+				setState(77);
 				match(O_C_BRACK);
-				setState(78);
+				setState(81);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__0) {
 					{
 					{
-					setState(75);
+					setState(78);
 					match(T__0);
 					}
 					}
-					setState(80);
+					setState(83);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(89);
+				setState(92);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(81);
+						setState(84);
 						element(0);
-						setState(83); 
+						setState(86); 
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 						do {
 							{
 							{
-							setState(82);
+							setState(85);
 							_la = _input.LA(1);
 							if ( !(_la==T__0 || _la==T__1) ) {
 							_errHandler.recoverInline(this);
@@ -727,51 +732,51 @@ public class archieParser extends Parser {
 							}
 							}
 							}
-							setState(85); 
+							setState(88); 
 							_errHandler.sync(this);
 							_la = _input.LA(1);
 						} while ( _la==T__0 || _la==T__1 );
 						}
 						} 
 					}
-					setState(91);
+					setState(94);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 				}
-				setState(93);
+				setState(96);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << STRING_LITERAL_TOKEN) | (1L << ALPHA_NUMERIC_NAME) | (1L << SYMBOL) | (1L << NUMERIC) | (1L << O_R_BRACK) | (1L << O_C_BRACK))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << STRING_LITERAL_TOKEN) | (1L << ALPHA_NUMERIC_NAME) | (1L << SYMBOL) | (1L << NUMERIC) | (1L << EQ) | (1L << O_R_BRACK) | (1L << O_C_BRACK))) != 0)) {
 					{
-					setState(92);
+					setState(95);
 					element(0);
 					}
 				}
 
-				setState(95);
+				setState(98);
 				match(C_C_BRACK);
 				}
 				break;
 			case 5:
 				{
-				_localctx = new AssignmentContext(_localctx);
+				_localctx = new NewObjContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(96);
-				identifier();
-				setState(97);
-				match(EQ);
-				setState(98);
-				element(3);
+				setState(99);
+				instantiation();
 				}
 				break;
 			case 6:
 				{
-				_localctx = new NewObjContext(_localctx);
+				_localctx = new AssignmentContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(100);
-				instantiation();
+				identifier();
+				setState(101);
+				match(EQ);
+				setState(102);
+				element(2);
 				}
 				break;
 			case 7:
@@ -779,13 +784,13 @@ public class archieParser extends Parser {
 				_localctx = new LiteralContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(101);
+				setState(104);
 				value();
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(119);
+			setState(122);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -793,18 +798,18 @@ public class archieParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(117);
+					setState(120);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 					case 1:
 						{
 						_localctx = new OpFunctionCallContext(new ElementContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_element);
-						setState(104);
+						setState(107);
 						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
-						setState(105);
+						setState(108);
 						name();
-						setState(106);
+						setState(109);
 						element(10);
 						}
 						break;
@@ -812,9 +817,9 @@ public class archieParser extends Parser {
 						{
 						_localctx = new FunctionCallContext(new ElementContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_element);
-						setState(108);
+						setState(111);
 						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
-						setState(109);
+						setState(112);
 						elementList();
 						}
 						break;
@@ -822,9 +827,9 @@ public class archieParser extends Parser {
 						{
 						_localctx = new CombinedIDContext(new ElementContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_element);
-						setState(110);
+						setState(113);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(113); 
+						setState(116); 
 						_errHandler.sync(this);
 						_alt = 1;
 						do {
@@ -832,9 +837,9 @@ public class archieParser extends Parser {
 							case 1:
 								{
 								{
-								setState(111);
+								setState(114);
 								match(DOT);
-								setState(112);
+								setState(115);
 								name();
 								}
 								}
@@ -842,7 +847,7 @@ public class archieParser extends Parser {
 							default:
 								throw new NoViableAltException(this);
 							}
-							setState(115); 
+							setState(118); 
 							_errHandler.sync(this);
 							_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -851,7 +856,7 @@ public class archieParser extends Parser {
 					}
 					} 
 				}
-				setState(121);
+				setState(124);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
 			}
@@ -900,11 +905,11 @@ public class archieParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(122);
+			setState(125);
 			match(T__2);
-			setState(123);
+			setState(126);
 			name();
-			setState(124);
+			setState(127);
 			elementList();
 			}
 		}
@@ -958,35 +963,35 @@ public class archieParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(126);
+			setState(129);
 			match(O_R_BRACK);
-			setState(128);
+			setState(131);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << STRING_LITERAL_TOKEN) | (1L << ALPHA_NUMERIC_NAME) | (1L << SYMBOL) | (1L << NUMERIC) | (1L << O_R_BRACK) | (1L << O_C_BRACK))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << STRING_LITERAL_TOKEN) | (1L << ALPHA_NUMERIC_NAME) | (1L << SYMBOL) | (1L << NUMERIC) | (1L << EQ) | (1L << O_R_BRACK) | (1L << O_C_BRACK))) != 0)) {
 				{
-				setState(127);
+				setState(130);
 				element(0);
 				}
 			}
 
-			setState(134);
+			setState(137);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(130);
+				setState(133);
 				match(COMMA);
-				setState(131);
+				setState(134);
 				element(0);
 				}
 				}
-				setState(136);
+				setState(139);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(137);
+			setState(140);
 			match(C_R_BRACK);
 			}
 		}
@@ -1038,23 +1043,23 @@ public class archieParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(139);
+			setState(142);
 			name();
-			setState(144);
+			setState(147);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(140);
+					setState(143);
 					match(DOT);
-					setState(141);
+					setState(144);
 					name();
 					}
 					} 
 				}
-				setState(146);
+				setState(149);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
 			}
@@ -1111,39 +1116,39 @@ public class archieParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(147);
+			setState(150);
 			match(O_R_BRACK);
-			setState(153);
+			setState(156);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,17,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(148);
+					setState(151);
 					name();
-					setState(149);
+					setState(152);
 					match(COMMA);
 					}
 					} 
 				}
-				setState(155);
+				setState(158);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,17,_ctx);
 			}
-			setState(160);
+			setState(163);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==ALPHA_NUMERIC_NAME || _la==SYMBOL) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ALPHA_NUMERIC_NAME) | (1L << SYMBOL) | (1L << EQ))) != 0)) {
 				{
-				setState(156);
+				setState(159);
 				name();
-				setState(158);
+				setState(161);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMMA) {
 					{
-					setState(157);
+					setState(160);
 					match(COMMA);
 					}
 				}
@@ -1151,7 +1156,7 @@ public class archieParser extends Parser {
 				}
 			}
 
-			setState(162);
+			setState(165);
 			match(C_R_BRACK);
 			}
 		}
@@ -1202,34 +1207,34 @@ public class archieParser extends Parser {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_value);
 		try {
-			setState(168);
+			setState(171);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,20,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(164);
+				setState(167);
 				integerLiteral();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(165);
+				setState(168);
 				floatLiteral();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(166);
+				setState(169);
 				stringLiteral();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(167);
+				setState(170);
 				booleanLiteral();
 				}
 				break;
@@ -1273,7 +1278,7 @@ public class archieParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(170);
+			setState(173);
 			_la = _input.LA(1);
 			if ( !(_la==T__3 || _la==T__4) ) {
 			_errHandler.recoverInline(this);
@@ -1323,7 +1328,7 @@ public class archieParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(172);
+			setState(175);
 			match(STRING_LITERAL_TOKEN);
 			}
 		}
@@ -1371,30 +1376,30 @@ public class archieParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(175); 
+			setState(178); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(174);
+				setState(177);
 				match(NUMERIC);
 				}
 				}
-				setState(177); 
+				setState(180); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==NUMERIC );
-			setState(189);
+			setState(192);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case DOT:
 				{
 				{
 				{
-				setState(179);
+				setState(182);
 				match(DOT);
-				setState(181); 
+				setState(184); 
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -1402,7 +1407,7 @@ public class archieParser extends Parser {
 					case 1:
 						{
 						{
-						setState(180);
+						setState(183);
 						match(NUMERIC);
 						}
 						}
@@ -1410,17 +1415,17 @@ public class archieParser extends Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(183); 
+					setState(186); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,22,_ctx);
 				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 				}
-				setState(186);
+				setState(189);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,23,_ctx) ) {
 				case 1:
 					{
-					setState(185);
+					setState(188);
 					_la = _input.LA(1);
 					if ( !(_la==T__5 || _la==T__6) ) {
 					_errHandler.recoverInline(this);
@@ -1439,7 +1444,7 @@ public class archieParser extends Parser {
 			case T__5:
 			case T__6:
 				{
-				setState(188);
+				setState(191);
 				_la = _input.LA(1);
 				if ( !(_la==T__5 || _la==T__6) ) {
 				_errHandler.recoverInline(this);
@@ -1498,7 +1503,7 @@ public class archieParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(192); 
+			setState(195); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -1506,7 +1511,7 @@ public class archieParser extends Parser {
 				case 1:
 					{
 					{
-					setState(191);
+					setState(194);
 					match(NUMERIC);
 					}
 					}
@@ -1514,7 +1519,7 @@ public class archieParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(194); 
+				setState(197); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,25,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -1534,6 +1539,10 @@ public class archieParser extends Parser {
 	public static class NameContext extends ParserRuleContext {
 		public TerminalNode ALPHA_NUMERIC_NAME() { return getToken(archieParser.ALPHA_NUMERIC_NAME, 0); }
 		public TerminalNode SYMBOL() { return getToken(archieParser.SYMBOL, 0); }
+		public List<TerminalNode> EQ() { return getTokens(archieParser.EQ); }
+		public TerminalNode EQ(int i) {
+			return getToken(archieParser.EQ, i);
+		}
 		public NameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1556,20 +1565,54 @@ public class archieParser extends Parser {
 	public final NameContext name() throws RecognitionException {
 		NameContext _localctx = new NameContext(_ctx, getState());
 		enterRule(_localctx, 28, RULE_name);
-		int _la;
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(196);
-			_la = _input.LA(1);
-			if ( !(_la==ALPHA_NUMERIC_NAME || _la==SYMBOL) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
+			int _alt;
+			setState(207);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case ALPHA_NUMERIC_NAME:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(199);
+				match(ALPHA_NUMERIC_NAME);
+				}
+				break;
+			case SYMBOL:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(200);
+				match(SYMBOL);
+				}
+				break;
+			case EQ:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(201);
+				match(EQ);
+				setState(203); 
+				_errHandler.sync(this);
+				_alt = 1;
+				do {
+					switch (_alt) {
+					case 1:
+						{
+						{
+						setState(202);
+						match(EQ);
+						}
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					setState(205); 
+					_errHandler.sync(this);
+					_alt = getInterpreter().adaptivePredict(_input,26,_ctx);
+				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1603,69 +1646,74 @@ public class archieParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\32\u00c9\4\2\t\2"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\32\u00d4\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
-		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\5\2\"\n\2\3\2"+
-		"\7\2%\n\2\f\2\16\2(\13\2\3\2\3\2\3\3\3\3\6\3.\n\3\r\3\16\3/\3\3\3\3\6"+
-		"\3\64\n\3\r\3\16\3\65\3\3\5\39\n\3\3\4\3\4\5\4=\n\4\3\5\3\5\3\5\3\5\3"+
-		"\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\7\6O\n\6\f\6\16\6R\13\6"+
-		"\3\6\3\6\6\6V\n\6\r\6\16\6W\7\6Z\n\6\f\6\16\6]\13\6\3\6\5\6`\n\6\3\6\3"+
-		"\6\3\6\3\6\3\6\3\6\3\6\5\6i\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\6"+
-		"\6t\n\6\r\6\16\6u\7\6x\n\6\f\6\16\6{\13\6\3\7\3\7\3\7\3\7\3\b\3\b\5\b"+
-		"\u0083\n\b\3\b\3\b\7\b\u0087\n\b\f\b\16\b\u008a\13\b\3\b\3\b\3\t\3\t\3"+
-		"\t\7\t\u0091\n\t\f\t\16\t\u0094\13\t\3\n\3\n\3\n\3\n\7\n\u009a\n\n\f\n"+
-		"\16\n\u009d\13\n\3\n\3\n\5\n\u00a1\n\n\5\n\u00a3\n\n\3\n\3\n\3\13\3\13"+
-		"\3\13\3\13\5\13\u00ab\n\13\3\f\3\f\3\r\3\r\3\16\6\16\u00b2\n\16\r\16\16"+
-		"\16\u00b3\3\16\3\16\6\16\u00b8\n\16\r\16\16\16\u00b9\3\16\5\16\u00bd\n"+
-		"\16\3\16\5\16\u00c0\n\16\3\17\6\17\u00c3\n\17\r\17\16\17\u00c4\3\20\3"+
-		"\20\3\20\2\3\n\21\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36\2\6\3\2\3\4\3"+
-		"\2\6\7\3\2\b\t\3\2\f\r\u00dc\2!\3\2\2\2\48\3\2\2\2\6:\3\2\2\2\b>\3\2\2"+
-		"\2\nh\3\2\2\2\f|\3\2\2\2\16\u0080\3\2\2\2\20\u008d\3\2\2\2\22\u0095\3"+
-		"\2\2\2\24\u00aa\3\2\2\2\26\u00ac\3\2\2\2\30\u00ae\3\2\2\2\32\u00b1\3\2"+
-		"\2\2\34\u00c2\3\2\2\2\36\u00c6\3\2\2\2 \"\7\3\2\2! \3\2\2\2!\"\3\2\2\2"+
-		"\"&\3\2\2\2#%\5\4\3\2$#\3\2\2\2%(\3\2\2\2&$\3\2\2\2&\'\3\2\2\2\')\3\2"+
-		"\2\2(&\3\2\2\2)*\7\2\2\3*\3\3\2\2\2+-\5\6\4\2,.\7\3\2\2-,\3\2\2\2./\3"+
-		"\2\2\2/-\3\2\2\2/\60\3\2\2\2\609\3\2\2\2\61\63\5\n\6\2\62\64\t\2\2\2\63"+
-		"\62\3\2\2\2\64\65\3\2\2\2\65\63\3\2\2\2\65\66\3\2\2\2\669\3\2\2\2\679"+
-		"\7\23\2\28+\3\2\2\28\61\3\2\2\28\67\3\2\2\29\5\3\2\2\2:<\5\b\5\2;=\5\n"+
-		"\6\2<;\3\2\2\2<=\3\2\2\2=\7\3\2\2\2>?\7\n\2\2?@\7\f\2\2@A\5\22\n\2A\t"+
-		"\3\2\2\2BC\b\6\1\2CD\7\27\2\2DE\5\n\6\2EF\7\30\2\2Fi\3\2\2\2GH\5\22\n"+
-		"\2HI\7\20\2\2IJ\5\n\6\tJi\3\2\2\2Ki\5\20\t\2LP\7\31\2\2MO\7\3\2\2NM\3"+
-		"\2\2\2OR\3\2\2\2PN\3\2\2\2PQ\3\2\2\2Q[\3\2\2\2RP\3\2\2\2SU\5\n\6\2TV\t"+
-		"\2\2\2UT\3\2\2\2VW\3\2\2\2WU\3\2\2\2WX\3\2\2\2XZ\3\2\2\2YS\3\2\2\2Z]\3"+
-		"\2\2\2[Y\3\2\2\2[\\\3\2\2\2\\_\3\2\2\2][\3\2\2\2^`\5\n\6\2_^\3\2\2\2_"+
-		"`\3\2\2\2`a\3\2\2\2ai\7\32\2\2bc\5\20\t\2cd\7\26\2\2de\5\n\6\5ei\3\2\2"+
-		"\2fi\5\f\7\2gi\5\24\13\2hB\3\2\2\2hG\3\2\2\2hK\3\2\2\2hL\3\2\2\2hb\3\2"+
-		"\2\2hf\3\2\2\2hg\3\2\2\2iy\3\2\2\2jk\f\13\2\2kl\5\36\20\2lm\5\n\6\fmx"+
-		"\3\2\2\2no\f\n\2\2ox\5\16\b\2ps\f\7\2\2qr\7\24\2\2rt\5\36\20\2sq\3\2\2"+
-		"\2tu\3\2\2\2us\3\2\2\2uv\3\2\2\2vx\3\2\2\2wj\3\2\2\2wn\3\2\2\2wp\3\2\2"+
-		"\2x{\3\2\2\2yw\3\2\2\2yz\3\2\2\2z\13\3\2\2\2{y\3\2\2\2|}\7\5\2\2}~\5\36"+
-		"\20\2~\177\5\16\b\2\177\r\3\2\2\2\u0080\u0082\7\27\2\2\u0081\u0083\5\n"+
-		"\6\2\u0082\u0081\3\2\2\2\u0082\u0083\3\2\2\2\u0083\u0088\3\2\2\2\u0084"+
-		"\u0085\7\25\2\2\u0085\u0087\5\n\6\2\u0086\u0084\3\2\2\2\u0087\u008a\3"+
-		"\2\2\2\u0088\u0086\3\2\2\2\u0088\u0089\3\2\2\2\u0089\u008b\3\2\2\2\u008a"+
-		"\u0088\3\2\2\2\u008b\u008c\7\30\2\2\u008c\17\3\2\2\2\u008d\u0092\5\36"+
-		"\20\2\u008e\u008f\7\24\2\2\u008f\u0091\5\36\20\2\u0090\u008e\3\2\2\2\u0091"+
-		"\u0094\3\2\2\2\u0092\u0090\3\2\2\2\u0092\u0093\3\2\2\2\u0093\21\3\2\2"+
-		"\2\u0094\u0092\3\2\2\2\u0095\u009b\7\27\2\2\u0096\u0097\5\36\20\2\u0097"+
-		"\u0098\7\25\2\2\u0098\u009a\3\2\2\2\u0099\u0096\3\2\2\2\u009a\u009d\3"+
-		"\2\2\2\u009b\u0099\3\2\2\2\u009b\u009c\3\2\2\2\u009c\u00a2\3\2\2\2\u009d"+
-		"\u009b\3\2\2\2\u009e\u00a0\5\36\20\2\u009f\u00a1\7\25\2\2\u00a0\u009f"+
-		"\3\2\2\2\u00a0\u00a1\3\2\2\2\u00a1\u00a3\3\2\2\2\u00a2\u009e\3\2\2\2\u00a2"+
-		"\u00a3\3\2\2\2\u00a3\u00a4\3\2\2\2\u00a4\u00a5\7\30\2\2\u00a5\23\3\2\2"+
-		"\2\u00a6\u00ab\5\34\17\2\u00a7\u00ab\5\32\16\2\u00a8\u00ab\5\30\r\2\u00a9"+
-		"\u00ab\5\26\f\2\u00aa\u00a6\3\2\2\2\u00aa\u00a7\3\2\2\2\u00aa\u00a8\3"+
-		"\2\2\2\u00aa\u00a9\3\2\2\2\u00ab\25\3\2\2\2\u00ac\u00ad\t\3\2\2\u00ad"+
-		"\27\3\2\2\2\u00ae\u00af\7\13\2\2\u00af\31\3\2\2\2\u00b0\u00b2\7\17\2\2"+
-		"\u00b1\u00b0\3\2\2\2\u00b2\u00b3\3\2\2\2\u00b3\u00b1\3\2\2\2\u00b3\u00b4"+
-		"\3\2\2\2\u00b4\u00bf\3\2\2\2\u00b5\u00b7\7\24\2\2\u00b6\u00b8\7\17\2\2"+
-		"\u00b7\u00b6\3\2\2\2\u00b8\u00b9\3\2\2\2\u00b9\u00b7\3\2\2\2\u00b9\u00ba"+
-		"\3\2\2\2\u00ba\u00bc\3\2\2\2\u00bb\u00bd\t\4\2\2\u00bc\u00bb\3\2\2\2\u00bc"+
-		"\u00bd\3\2\2\2\u00bd\u00c0\3\2\2\2\u00be\u00c0\t\4\2\2\u00bf\u00b5\3\2"+
-		"\2\2\u00bf\u00be\3\2\2\2\u00c0\33\3\2\2\2\u00c1\u00c3\7\17\2\2\u00c2\u00c1"+
-		"\3\2\2\2\u00c3\u00c4\3\2\2\2\u00c4\u00c2\3\2\2\2\u00c4\u00c5\3\2\2\2\u00c5"+
-		"\35\3\2\2\2\u00c6\u00c7\t\5\2\2\u00c7\37\3\2\2\2\34!&/\658<PW[_huwy\u0082"+
-		"\u0088\u0092\u009b\u00a0\u00a2\u00aa\u00b3\u00b9\u00bc\u00bf\u00c4";
+		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\7\2\"\n\2\f\2"+
+		"\16\2%\13\2\3\2\7\2(\n\2\f\2\16\2+\13\2\3\2\3\2\3\3\3\3\6\3\61\n\3\r\3"+
+		"\16\3\62\3\3\3\3\6\3\67\n\3\r\3\16\38\3\3\5\3<\n\3\3\4\3\4\5\4@\n\4\3"+
+		"\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\7\6R\n"+
+		"\6\f\6\16\6U\13\6\3\6\3\6\6\6Y\n\6\r\6\16\6Z\7\6]\n\6\f\6\16\6`\13\6\3"+
+		"\6\5\6c\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6l\n\6\3\6\3\6\3\6\3\6\3\6\3"+
+		"\6\3\6\3\6\3\6\6\6w\n\6\r\6\16\6x\7\6{\n\6\f\6\16\6~\13\6\3\7\3\7\3\7"+
+		"\3\7\3\b\3\b\5\b\u0086\n\b\3\b\3\b\7\b\u008a\n\b\f\b\16\b\u008d\13\b\3"+
+		"\b\3\b\3\t\3\t\3\t\7\t\u0094\n\t\f\t\16\t\u0097\13\t\3\n\3\n\3\n\3\n\7"+
+		"\n\u009d\n\n\f\n\16\n\u00a0\13\n\3\n\3\n\5\n\u00a4\n\n\5\n\u00a6\n\n\3"+
+		"\n\3\n\3\13\3\13\3\13\3\13\5\13\u00ae\n\13\3\f\3\f\3\r\3\r\3\16\6\16\u00b5"+
+		"\n\16\r\16\16\16\u00b6\3\16\3\16\6\16\u00bb\n\16\r\16\16\16\u00bc\3\16"+
+		"\5\16\u00c0\n\16\3\16\5\16\u00c3\n\16\3\17\6\17\u00c6\n\17\r\17\16\17"+
+		"\u00c7\3\20\3\20\3\20\3\20\6\20\u00ce\n\20\r\20\16\20\u00cf\5\20\u00d2"+
+		"\n\20\3\20\2\3\n\21\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36\2\5\3\2\3\4"+
+		"\3\2\6\7\3\2\b\t\u00ea\2#\3\2\2\2\4;\3\2\2\2\6=\3\2\2\2\bA\3\2\2\2\nk"+
+		"\3\2\2\2\f\177\3\2\2\2\16\u0083\3\2\2\2\20\u0090\3\2\2\2\22\u0098\3\2"+
+		"\2\2\24\u00ad\3\2\2\2\26\u00af\3\2\2\2\30\u00b1\3\2\2\2\32\u00b4\3\2\2"+
+		"\2\34\u00c5\3\2\2\2\36\u00d1\3\2\2\2 \"\7\3\2\2! \3\2\2\2\"%\3\2\2\2#"+
+		"!\3\2\2\2#$\3\2\2\2$)\3\2\2\2%#\3\2\2\2&(\5\4\3\2\'&\3\2\2\2(+\3\2\2\2"+
+		")\'\3\2\2\2)*\3\2\2\2*,\3\2\2\2+)\3\2\2\2,-\7\2\2\3-\3\3\2\2\2.\60\5\6"+
+		"\4\2/\61\7\3\2\2\60/\3\2\2\2\61\62\3\2\2\2\62\60\3\2\2\2\62\63\3\2\2\2"+
+		"\63<\3\2\2\2\64\66\5\n\6\2\65\67\t\2\2\2\66\65\3\2\2\2\678\3\2\2\28\66"+
+		"\3\2\2\289\3\2\2\29<\3\2\2\2:<\7\23\2\2;.\3\2\2\2;\64\3\2\2\2;:\3\2\2"+
+		"\2<\5\3\2\2\2=?\5\b\5\2>@\5\n\6\2?>\3\2\2\2?@\3\2\2\2@\7\3\2\2\2AB\7\n"+
+		"\2\2BC\7\f\2\2CD\5\22\n\2D\t\3\2\2\2EF\b\6\1\2FG\7\27\2\2GH\5\n\6\2HI"+
+		"\7\30\2\2Il\3\2\2\2JK\5\22\n\2KL\7\20\2\2LM\5\n\6\tMl\3\2\2\2Nl\5\20\t"+
+		"\2OS\7\31\2\2PR\7\3\2\2QP\3\2\2\2RU\3\2\2\2SQ\3\2\2\2ST\3\2\2\2T^\3\2"+
+		"\2\2US\3\2\2\2VX\5\n\6\2WY\t\2\2\2XW\3\2\2\2YZ\3\2\2\2ZX\3\2\2\2Z[\3\2"+
+		"\2\2[]\3\2\2\2\\V\3\2\2\2]`\3\2\2\2^\\\3\2\2\2^_\3\2\2\2_b\3\2\2\2`^\3"+
+		"\2\2\2ac\5\n\6\2ba\3\2\2\2bc\3\2\2\2cd\3\2\2\2dl\7\32\2\2el\5\f\7\2fg"+
+		"\5\20\t\2gh\7\26\2\2hi\5\n\6\4il\3\2\2\2jl\5\24\13\2kE\3\2\2\2kJ\3\2\2"+
+		"\2kN\3\2\2\2kO\3\2\2\2ke\3\2\2\2kf\3\2\2\2kj\3\2\2\2l|\3\2\2\2mn\f\13"+
+		"\2\2no\5\36\20\2op\5\n\6\fp{\3\2\2\2qr\f\n\2\2r{\5\16\b\2sv\f\7\2\2tu"+
+		"\7\24\2\2uw\5\36\20\2vt\3\2\2\2wx\3\2\2\2xv\3\2\2\2xy\3\2\2\2y{\3\2\2"+
+		"\2zm\3\2\2\2zq\3\2\2\2zs\3\2\2\2{~\3\2\2\2|z\3\2\2\2|}\3\2\2\2}\13\3\2"+
+		"\2\2~|\3\2\2\2\177\u0080\7\5\2\2\u0080\u0081\5\36\20\2\u0081\u0082\5\16"+
+		"\b\2\u0082\r\3\2\2\2\u0083\u0085\7\27\2\2\u0084\u0086\5\n\6\2\u0085\u0084"+
+		"\3\2\2\2\u0085\u0086\3\2\2\2\u0086\u008b\3\2\2\2\u0087\u0088\7\25\2\2"+
+		"\u0088\u008a\5\n\6\2\u0089\u0087\3\2\2\2\u008a\u008d\3\2\2\2\u008b\u0089"+
+		"\3\2\2\2\u008b\u008c\3\2\2\2\u008c\u008e\3\2\2\2\u008d\u008b\3\2\2\2\u008e"+
+		"\u008f\7\30\2\2\u008f\17\3\2\2\2\u0090\u0095\5\36\20\2\u0091\u0092\7\24"+
+		"\2\2\u0092\u0094\5\36\20\2\u0093\u0091\3\2\2\2\u0094\u0097\3\2\2\2\u0095"+
+		"\u0093\3\2\2\2\u0095\u0096\3\2\2\2\u0096\21\3\2\2\2\u0097\u0095\3\2\2"+
+		"\2\u0098\u009e\7\27\2\2\u0099\u009a\5\36\20\2\u009a\u009b\7\25\2\2\u009b"+
+		"\u009d\3\2\2\2\u009c\u0099\3\2\2\2\u009d\u00a0\3\2\2\2\u009e\u009c\3\2"+
+		"\2\2\u009e\u009f\3\2\2\2\u009f\u00a5\3\2\2\2\u00a0\u009e\3\2\2\2\u00a1"+
+		"\u00a3\5\36\20\2\u00a2\u00a4\7\25\2\2\u00a3\u00a2\3\2\2\2\u00a3\u00a4"+
+		"\3\2\2\2\u00a4\u00a6\3\2\2\2\u00a5\u00a1\3\2\2\2\u00a5\u00a6\3\2\2\2\u00a6"+
+		"\u00a7\3\2\2\2\u00a7\u00a8\7\30\2\2\u00a8\23\3\2\2\2\u00a9\u00ae\5\34"+
+		"\17\2\u00aa\u00ae\5\32\16\2\u00ab\u00ae\5\30\r\2\u00ac\u00ae\5\26\f\2"+
+		"\u00ad\u00a9\3\2\2\2\u00ad\u00aa\3\2\2\2\u00ad\u00ab\3\2\2\2\u00ad\u00ac"+
+		"\3\2\2\2\u00ae\25\3\2\2\2\u00af\u00b0\t\3\2\2\u00b0\27\3\2\2\2\u00b1\u00b2"+
+		"\7\13\2\2\u00b2\31\3\2\2\2\u00b3\u00b5\7\17\2\2\u00b4\u00b3\3\2\2\2\u00b5"+
+		"\u00b6\3\2\2\2\u00b6\u00b4\3\2\2\2\u00b6\u00b7\3\2\2\2\u00b7\u00c2\3\2"+
+		"\2\2\u00b8\u00ba\7\24\2\2\u00b9\u00bb\7\17\2\2\u00ba\u00b9\3\2\2\2\u00bb"+
+		"\u00bc\3\2\2\2\u00bc\u00ba\3\2\2\2\u00bc\u00bd\3\2\2\2\u00bd\u00bf\3\2"+
+		"\2\2\u00be\u00c0\t\4\2\2\u00bf\u00be\3\2\2\2\u00bf\u00c0\3\2\2\2\u00c0"+
+		"\u00c3\3\2\2\2\u00c1\u00c3\t\4\2\2\u00c2\u00b8\3\2\2\2\u00c2\u00c1\3\2"+
+		"\2\2\u00c3\33\3\2\2\2\u00c4\u00c6\7\17\2\2\u00c5\u00c4\3\2\2\2\u00c6\u00c7"+
+		"\3\2\2\2\u00c7\u00c5\3\2\2\2\u00c7\u00c8\3\2\2\2\u00c8\35\3\2\2\2\u00c9"+
+		"\u00d2\7\f\2\2\u00ca\u00d2\7\r\2\2\u00cb\u00cd\7\26\2\2\u00cc\u00ce\7"+
+		"\26\2\2\u00cd\u00cc\3\2\2\2\u00ce\u00cf\3\2\2\2\u00cf\u00cd\3\2\2\2\u00cf"+
+		"\u00d0\3\2\2\2\u00d0\u00d2\3\2\2\2\u00d1\u00c9\3\2\2\2\u00d1\u00ca\3\2"+
+		"\2\2\u00d1\u00cb\3\2\2\2\u00d2\37\3\2\2\2\36#)\628;?SZ^bkxz|\u0085\u008b"+
+		"\u0095\u009e\u00a3\u00a5\u00ad\u00b6\u00bc\u00bf\u00c2\u00c7\u00cf\u00d1";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

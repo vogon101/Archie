@@ -1,8 +1,7 @@
-package com.vogonjeltz.archie.AST.treeWalk.walkers
+package com.vogonjeltz.archie.AST.TreeWalk.walkers
 
-import com.vogonjeltz.archie.AST._
 import com.vogonjeltz.archie.AST.tree._
-import com.vogonjeltz.archie.AST.treeWalk.ASTVisitor
+import com.vogonjeltz.archie.AST.TreeWalk.ASTVisitor
 
 /**
   * Created by Freddie on 03/01/2017.

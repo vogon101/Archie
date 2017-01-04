@@ -1,7 +1,24 @@
-class ThisIsAClass () {
-    this.other = () => this.that
-    this.that = ""
-    this other that
+class MyClass(test) {
+    this.hello = "Freddie"
+
+    this.add = (number) => 5
+
+    println(myAge)
 }
 
-new ThisIsAClass()
+myName = "Freddie"
+myAge = 16
+println("Hello " + myName + " you are " + myAge)
+
+my = new MyClass("GG")
+println(my)
+
+function = () => println("Hello World")
+function()
+
+function2 = (name) => println("Hello " + name)
+function2("Freddie")
+
+println(function2)
+
+println(my add 4)

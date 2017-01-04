@@ -1,7 +1,8 @@
 package com.vogonjeltz.archie.test
 
-import com.vogonjeltz.archie.AST.treeWalk.walkers.PrintWalker
+import com.vogonjeltz.archie.AST.TreeWalk.walkers.PrintWalker
 import com.vogonjeltz.archie.parsing.ParserCore
+import com.vogonjeltz.archie.runtime.types.ArchieFunction
 
 /**
   * MainTest
@@ -42,6 +43,9 @@ object MainTest {
       time { println(parser.parsed) }
       new PrintWalker().visitAST(parser.parsed)
       println("\n\n\n")
+
+      //val instance = new ArchieFunction()
+
       //println("\n\n\n")
       //val visitor = new TestVisitor()
       //new PrintWalker().visitAST(visitor.visitAST(parser.parsed))

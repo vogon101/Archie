@@ -1,6 +1,4 @@
 package com.vogonjeltz.archie.parsing
-
-import com.vogonjeltz.archie.AST._
 import com.vogonjeltz.archie.AST.tree.AST
 import com.vogonjeltz.archie.parsing.antlr._
 import com.vogonjeltz.archie.parsing.antlr.archieParser._
