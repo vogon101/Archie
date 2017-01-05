@@ -1,11 +1,11 @@
 grammar archie;
 // Parser Rules
 
-program: '\n'? line* EOF;
+program: '\n'* line* EOF;
 
 line
  : classDef '\n'+
- | element (';' | '\n')+
+ | element COMMENT? (';' | '\n')+
  | COMMENT
 
  ;
@@ -25,8 +25,8 @@ element
  | identifier                                                  #textID
  | element  (DOT name)+                                        #combinedID//CombinedID
  | O_C_BRACK '\n'* (element (';' | '\n')+)* element? C_C_BRACK #codeBlock
- | identifier EQ element                                       #assignment//assignment
  | instantiation                                               #newObj
+ | identifier EQ element                                       #assignment//assignment
  | value                                                       #literal
  ;
 
@@ -49,7 +49,7 @@ booleanLiteral: 'true' | 'false';
 stringLiteral: STRING_LITERAL_TOKEN;
 floatLiteral: NUMERIC+ ( ( (DOT NUMERIC+) ('f' | 'F')? ) | ('f' | 'F') );
 integerLiteral: NUMERIC+;
-name: ALPHA_NUMERIC_NAME | SYMBOL;
+name: ALPHA_NUMERIC_NAME | SYMBOL | EQ EQ+;
 
 CLASS: 'class';
 
@@ -57,7 +57,7 @@ fragment ESCAPED_QUOTE : '\\"';
 STRING_LITERAL_TOKEN :   '"' ( ESCAPED_QUOTE | ~('\n'|'\r') )*? '"';
 
 ALPHA_NUMERIC_NAME: [A-Za-z_][A-Za-z0-9_]*;
-SYMBOL: [~!$^*&+#<>?|\-]+;
+SYMBOL: [~!$^*&+#<>?|\\-/]+[=]*;
 
 CLASS_NAME: [A-Za-z_][A-Za-z0-9_]*;
 

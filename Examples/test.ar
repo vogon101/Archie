@@ -1,24 +1,14 @@
-class MyClass(test) {
-    this.hello = "Freddie"
+class Person(name, age) {
 
-    this.add = (number) => 5
+    println("Person " + name + " is " + age)
 
-    println(myAge)
 }
 
-myName = "Freddie"
-myAge = 16
-println("Hello " + myName + " you are " + myAge)
+printPerson  = (person) => {
+    println("Person " + person.name)
+}
 
-my = new MyClass("GG")
-println(my)
+freddie = new Person("Freddie", 16)
+james = new Person("James", 17)
 
-function = () => println("Hello World")
-function()
-
-function2 = (name) => println("Hello " + name)
-function2("Freddie")
-
-println(function2)
-
-println(my add 4)
+printPerson(freddie)

@@ -1,5 +1,6 @@
 package com.vogonjeltz.archie.runtime.state
 
+import com.vogonjeltz.archie.runtime.Interpreter
 import com.vogonjeltz.archie.runtime.library.{Library, STDLib}
 
 import scala.collection.mutable
@@ -7,7 +8,7 @@ import scala.collection.mutable
 /**
   * Created by Freddie on 04/01/2017.
   */
-class ProgramContext protected (){
+class ProgramContext(val interpreter: Interpreter) {
 
   val scopeStack = new ScopeStack
 
@@ -41,10 +42,12 @@ object ProgramContext {
 
   private var _instance: ProgramContext = _
 
-  def instance: ProgramContext = {
-    if (_instance == null) _instance = new ProgramContext
+  def instance(interpreter: Interpreter): ProgramContext = {
+    if (_instance == null) _instance = new ProgramContext(interpreter)
     _instance
   }
+
+  def instance: ProgramContext = _instance
 
   def resetContext(): Unit = _instance = null
 

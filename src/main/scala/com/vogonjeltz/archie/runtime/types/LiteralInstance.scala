@@ -1,8 +1,8 @@
 package com.vogonjeltz.archie.runtime.types
 
+import com.vogonjeltz.archie.AST.tree.{FunctionCall, TextID}
 import com.vogonjeltz.archie.runtime.library.Library
-import com.vogonjeltz.archie.runtime.state.Scope
-import com.vogonjeltz.archie.runtime.types.ArchieFunctionAdapter
+import com.vogonjeltz.archie.runtime.state.{ProgramContext, Scope}
 
 /**
   * Created by Freddie on 04/01/2017.
@@ -38,7 +38,37 @@ class StringLiteralInstance(override val value: String) extends LiteralInstance(
 
 class BooleanLiteralInstance(override val value: Boolean) extends LiteralInstance(LiteralInstance.BooleanType)
 
-class IntLiteralInstance(override val value: Int) extends LiteralInstance(LiteralInstance.IntType)
+sealed class NumericalInstance[T](_archieType: ArchieType, override val value: T) extends LiteralInstance(_archieType) {
 
-class FloatLiteralInstance(override val value: Float) extends LiteralInstance(LiteralInstance.FloatType)
+  scope.set("+", new ArchieFunctionAdapter(List("other"), (s: Scope) => {
+    val otherVal = ProgramContext.instance.interpreter.visitFunctionCall(
+      FunctionCall(TextID(List("this", "toFloat")), List())
+    )
+    if (otherVal.isEmpty) throw new Exception(s"Couldn't convert ${s.get("other")} to float")
+    else {
+      otherVal.get match {
+        case v: NumericalInstance[Float] => Some(new FloatLiteralInstance(value.asInstanceOf[Float] + v.value))
+        case _ => None
+      }
+    }
+  }))
+
+  scope.set("-", new ArchieFunctionAdapter(List("other"), (s: Scope) => {
+    val otherVal = ProgramContext.instance.interpreter.visitFunctionCall(
+      FunctionCall(TextID(List("this", "toFloat")), List())
+    )
+    if (otherVal.isEmpty) throw new Exception(s"Couldn't convert ${s.get("other")} to float")
+    else {
+      otherVal.get match {
+        case v: NumericalInstance[Float] => Some(new FloatLiteralInstance(value.asInstanceOf[Float] + v.value))
+        case _ => None
+      }
+    }
+  }))
+
+}
+
+class IntLiteralInstance(_value: Int) extends NumericalInstance[Int](LiteralInstance.IntType, _value)
+
+class FloatLiteralInstance(_value: Float) extends NumericalInstance[Float](LiteralInstance.FloatType, _value)
 

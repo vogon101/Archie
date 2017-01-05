@@ -1,4 +1,4 @@
-package com.vogonjeltz.archie.AST.TreeWalk
+package com.vogonjeltz.archie.AST.treeWalk
 
 import com.vogonjeltz.archie.AST.tree._
 
@@ -26,8 +26,8 @@ class ASTTransform {
     * Transform only the elements and classDefs, leaves out comments
     * @param ast The ast to transform
     * @param T The function that transforms elements
-    * @param CT The function that transforms ClassDefs
-    * @return The transformed AST
+    * @param CT The function that transforms class definitions
+    * @return The tranformed ast
     */
   def transformElements(ast:AST)(T: (Element) => Element)(CT: (ClassDef) => ClassDef): AST = {
     new AST(
@@ -39,21 +39,12 @@ class ASTTransform {
     )
   }
 
-  /**
-    * Transforms elements but recursively calls transformComplexElements on CodeBlocks
-    * @param ast The ast to transform
-    * @param T The function that transforms elements
-    * @param CT The function that transforms ClassDefs
-    * @tparam LS Duck typing to allow anything with a list of lines
-    * @return The transformed AST
-    */
-  def transformComplexElements[LS <: {val lines: List[Line]}](ast: LS)(T: (Element) => Element)(CT: (ClassDef) => ClassDef): AST = {
+  def transformComplexElements[LS <: {val lines: List[Line]}](ast: LS)(T: (Element) => Element): AST = {
     new AST(
       ast.lines.map {
         case c: Comment => c
-        case b: CodeBlock => CodeBlock(transformComplexElements(b)(T)(CT).lines)
+        case b: CodeBlock => CodeBlock(transformComplexElements(b)(T).lines)
         case e: Element => T(e)
-        case d: ClassDef => CT(d)
       }
     )
   }

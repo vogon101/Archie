@@ -1,6 +1,6 @@
 package com.vogonjeltz.archie.runtime.state
 
-import com.vogonjeltz.archie.runtime.types.ArchieInstance
+import com.vogonjeltz.archie.runtime.types.{ArchieFunction, ArchieInstance}
 
 import scala.collection.mutable
 
@@ -16,6 +16,15 @@ trait Scope {
   def isSet(name: String): Boolean
 
   def apply(name: String): Option[ArchieInstance] = get(name)
+
+
+  def getFunction(name:String): Option[ArchieFunction] = {
+    val f = get(name)
+    f match {
+      case Some(f: ArchieFunction) => Some(f)
+      case _ => None
+    }
+  }
 
 }
 

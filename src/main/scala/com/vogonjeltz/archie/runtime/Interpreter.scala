@@ -13,7 +13,7 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
 
   //TODO:Return Statements
 
-  val context: ProgramContext = ProgramContext.instance
+  val context: ProgramContext = ProgramContext.instance(this)
   context.loadCoreLib()
 
   Log.setLevel(logLevel)
@@ -58,6 +58,7 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
 
   override def visitFunctionCall(functionCall: FunctionCall) = {
     val functionOption = functionCall.element.accept(this)
+    Log.info(functionCall)
 
     functionOption match {
       case None => throw new Exception("Can't call a function on None")

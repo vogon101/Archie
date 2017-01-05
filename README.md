@@ -100,7 +100,7 @@ println(newFreddie.yearOfBirth) //Prints 2001
 - ~~Visitor and Transform Framework~~
 - ~~Simple File Application for testing~~
 - Interpreter
-    - Type Backend
+    - ~~Type Backend~~
     - Element Implementations
     - Standard Library
 - API
@@ -112,6 +112,11 @@ improving speed when running code
 ##TODO:
 * Allow comments inside of a `CodeBlock`
     * Perhaps make comments some sort of element
+* Make assignments lines then allow lines inside of a codeblock
+* return statements
+* if and while
+* Apply syntax?
+* Function calls inside of objects need object scope
 
 ##Contributing
 I will not be accepting contributions at the moment as this is a project for school

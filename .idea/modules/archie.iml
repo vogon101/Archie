@@ -24,9 +24,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.1:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.lihaoyi:sourcecode_2.11:0.1.3:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.lihaoyi:fastparse_2.11:0.4.2:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.lihaoyi:fastparse-utils_2.11:0.4.2:jar" level="project" />
     <orderEntry type="library" name="SBT: org.antlr:antlr4-runtime:4.6:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.lihaoyi:fastparse-utils_2.11:0.4.2:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.lihaoyi:fastparse_2.11:0.4.2:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.lihaoyi:sourcecode_2.11:0.1.3:jar" level="project" />
   </component>
 </module>

@@ -1,0 +1,36 @@
+class Person (name, yearOfBirth) {
+
+    this.age = () => {
+      currentYear - yearOfBirth;
+    }
+
+    this.apply = () => {
+        "Person (" + name + ")"
+    }
+
+    this.+ = (years) => {
+        new Person(name, yearOfBirth+years)
+    }
+
+    this.+= = (years) => {
+        this.yearOfBirth = this.yearOfBirth + years
+    }
+
+}
+
+currentYear = 2016
+freddie = new Person("Freddie", 2000)
+
+println(freddie.age())
+println(freddie())
+
+freddie.name = "Freddie Poser"
+println(freddie())
+
+newFreddie = freddie + 1
+println(freddie.yearOfBirth)
+println(newFreddie.yearOfBirth)
+
+freddie += 2
+println(freddie.yearOfBirth)
+println(newFreddie.yearOfBirth)
