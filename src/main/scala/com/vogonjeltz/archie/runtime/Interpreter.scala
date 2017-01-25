@@ -63,6 +63,11 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
     functionOption match {
       case None => throw new Exception("Can't call a function on None")
       case Some(f: ArchieFunction) => runFunction(f, functionCall)
+      case Some(other: FullArchieInstance) => {
+        val args = functionCall.arguments.map(_.accept(this))
+        if (args.contains(None)) throw new Exception(s"One or more argument for function $other is None")
+        other.runMember("apply", functionCall.arguments.map(_.accept(this).get))
+      }
     }
   }
 
@@ -154,7 +159,7 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
 
     archieType.get match {
       case archieTypeWrapper: ArchieTypeWrapper =>
-        Some(new ConcreteArchieInstance(archieTypeWrapper.wrappedArchieType, arguments.map(_.get)))
+        Some(new FullArchieInstance(archieTypeWrapper.wrappedArchieType, arguments.map(_.get)))
       case _ => throw new Exception(s"Tried to instantiate non-type (${archieType.get})")
     }
   }

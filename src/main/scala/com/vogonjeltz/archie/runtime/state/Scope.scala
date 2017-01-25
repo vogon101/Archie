@@ -1,6 +1,6 @@
 package com.vogonjeltz.archie.runtime.state
 
-import com.vogonjeltz.archie.runtime.types.{ArchieFunction, ArchieInstance}
+import com.vogonjeltz.archie.runtime.types.{ArchieFunction, ArchieInstance, LazyArchieInstance}
 
 import scala.collection.mutable
 
@@ -12,6 +12,10 @@ trait Scope {
   def set(name: String, instance: ArchieInstance): Unit
 
   def get(name: String): Option[ArchieInstance]
+
+  def forceGet(name: String): ArchieInstance = get(name).get
+
+  def getOrElse(name: String, alt: => ArchieInstance) = get(name).getOrElse(alt)
 
   def isSet(name: String): Boolean
 
@@ -34,7 +38,18 @@ class ConcreteScope extends Scope {
 
   def set(name: String, instance: ArchieInstance) = variables += (name -> instance)
 
-  def get(name: String) = variables.get(name)
+  /**
+    * Gets values from a scope, will also unpack wrapped lazy values
+    * @param name
+    * @return
+    */
+  def get(name: String): Option[ArchieInstance] = {
+    val value = variables.get(name)
+    value match {
+      case Some(LazyArchieInstance(instance)) => Some(instance)
+      case x => x
+    }
+  }
 
   def isSet(name: String) = variables.isDefinedAt(name)
 

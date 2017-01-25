@@ -2,6 +2,12 @@ class Person(name, age) {
 
     println("Person " + name + " is " + age)
 
+    test = "abs"
+
+    that = () => {
+        println("Hello " + name)
+    }
+
 }
 
 printPerson  = (person) => {
@@ -12,3 +18,5 @@ freddie = new Person("Freddie", 16)
 james = new Person("James", 17)
 
 printPerson(freddie)
+println(freddie.test)
+freddie.that()

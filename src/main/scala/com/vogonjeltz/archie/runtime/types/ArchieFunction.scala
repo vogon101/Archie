@@ -1,22 +1,48 @@
 package com.vogonjeltz.archie.runtime.types
 
-import com.vogonjeltz.archie.AST.tree.Element
-import com.vogonjeltz.archie.runtime.state.Scope
+import com.vogonjeltz.archie.AST.tree.{Element, FunctionCall}
+import com.vogonjeltz.archie.runtime.state.{ProgramContext, Scope, ScopeStack}
 
 /**
   * Created by Freddie on 04/01/2017.
   */
-abstract class ArchieFunction(val paramNames: List[String] = List()) extends ArchieInstance(ArchieFunctionType.typeInstance) {
+abstract class ArchieFunction(val paramNames: List[String] = List(), override val scope: ScopeStack = new ScopeStack) extends FullArchieInstance(ArchieFunctionType.typeInstance) {
+
+  def run(params: List[ArchieInstance]): Option[ArchieInstance]
 
 }
 
 class ArchieFunctionAdapter (_paramNames: List[String], val f: (Scope) => Option[ArchieInstance]) extends ArchieFunction(_paramNames) {
 
-  //def this(_paramNames: List[String], f: (Scope) => Unit) = this(_paramNames, (s: Scope) => {f(s); None})
+  override def run(params: List[ArchieInstance]) = {
+    if(params.length != _paramNames.length) {
+      throw new Exception("Wrong number of arguments for function " + runMember("toString").get + s" (expected ${paramNames.length}, got ${params.length})")
+    }
+    scope.push ((s: Scope) => {
+      for (param <- params.zip(paramNames)) {
+        s.set(param._2, param._1)
+      }
+      f(s)
+    })
+  }
 
 }
 
-class ArchieElementFunction(_paramNames: List[String], val e: Element) extends ArchieFunction(_paramNames)
+class ArchieElementFunction(_paramNames: List[String], val e: Element) extends ArchieFunction(_paramNames) {
+
+  override def run(params: List[ArchieInstance]) = {
+    if(params.length != _paramNames.length) {
+      throw new Exception("Wrong number of arguments for function " + runMember("toString").get + s" (expected ${paramNames.length}, got ${params.length})")
+    }
+    scope.push ((s: Scope) => {
+      for (param <- params.zip(paramNames)) {
+        s.set(param._2, param._1)
+      }
+      e.accept(ProgramContext.instance.interpreter)
+    })
+  }
+
+}
 
 class ArchieFunctionType extends ArchieType("Function", List(), (s: Scope) => {}){
 

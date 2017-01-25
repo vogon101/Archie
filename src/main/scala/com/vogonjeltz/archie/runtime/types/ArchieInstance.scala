@@ -8,8 +8,20 @@ import com.vogonjeltz.archie.runtime.state.{ConcreteScope, ProgramContext, Scope
   */
 abstract class ArchieInstance(val archieType: ArchieType, val constructorParams: List[ArchieInstance] = List()) {
 
-  val scope: Scope = new ConcreteScope
+  val scope: ScopeStack = new ScopeStack
   scope.set("this", this)
+
+}
+
+class FullArchieInstance(_at: ArchieType, _constructorParams: List[ArchieInstance] = List()) extends ArchieInstance(_at, _constructorParams) {
+
+  def runMember(name: String, args: List[ArchieInstance] = List()):Option[ArchieInstance] =  {
+    //TODO: Make this more debuggable
+    scope.get(name).filter(_.isInstanceOf[ArchieFunction]).map(_.asInstanceOf[ArchieFunction]).flatMap(_.run(args))
+  }
+
+  for((name, member) <- archieType.members)
+    scope.set(name, member())
 
   if (constructorParams.length != archieType.paramNames.length) {
     throw new Exception(s"Wrong number of params for ${archieType.name} instantiation (Got ${constructorParams.length}, expected ${archieType.paramNames.length}")
@@ -21,13 +33,6 @@ abstract class ArchieInstance(val archieType: ArchieType, val constructorParams:
 
   ProgramContext.instance.scopeStack.push(scope) (archieType.instantiationFunction(_))
 
-}
-
-class ConcreteArchieInstance(_at: ArchieType, _constructorParams: List[ArchieInstance] = List()) extends ArchieInstance(_at, _constructorParams) {
-
-
-  scope.set("toString", new ArchieFunctionAdapter(List(), (s: Scope) => {Some(new StringLiteralInstance(this.toString))}))
-
-  override def toString = s"${archieType.name} ($scope)"
+  override def toString = runMember("toString").toString
 
 }

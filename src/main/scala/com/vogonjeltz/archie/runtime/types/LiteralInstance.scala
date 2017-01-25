@@ -20,7 +20,7 @@ object LiteralInstance {
 
 class LiteralType(_name: String) extends ArchieType(_name, List(), (s: Scope) => {})
 
-abstract class LiteralInstance(literalType: ArchieType) extends ArchieInstance(literalType) {
+abstract class LiteralInstance(literalType: ArchieType) extends FullArchieInstance(literalType) {
 
   val value: Any
 
@@ -33,6 +33,10 @@ class StringLiteralInstance(override val value: String) extends LiteralInstance(
   scope.set("+", new ArchieFunctionAdapter(List("other"), (s: Scope) => {
     Some(new StringLiteralInstance(value + s.get("other").get))
   }))
+
+  def + (that: ArchieInstance) = runMember("+", List(that))
+
+  override def toString = value
 
 }
 
