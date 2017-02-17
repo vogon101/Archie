@@ -7,11 +7,9 @@ import scala.collection.mutable
 /**
   * Created by Freddie on 04/01/2017.
   */
-class ScopeStack extends Scope {
+class ScopeStack(override val _container: Option[ArchieInstance] = None, val baseScope:Option[Scope] = None) extends Scope {
 
-  val baseScope: Scope = new ConcreteScope
-
-  private val scopes: mutable.Stack[Scope] = mutable.Stack(baseScope)
+  private val scopes: mutable.Stack[Scope] = mutable.Stack(baseScope.getOrElse(new ConcreteScope))
 
   def push[T](scope: Scope)(f: (Scope) => T): T = {
     scopes.push(scope)
@@ -55,5 +53,7 @@ class ScopeStack extends Scope {
   def setTop(name: String, instance:ArchieInstance) = {
     scopes.head.set(name, instance)
   }
+
+  def top:Scope = scopes.head
 
 }

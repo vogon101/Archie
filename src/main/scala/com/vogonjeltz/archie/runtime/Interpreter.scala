@@ -56,6 +56,7 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
 
   override def visitComment(comment: Comment) = None
 
+  //TODO: Know when the funciton is a member
   override def visitFunctionCall(functionCall: FunctionCall) = {
     val functionOption = functionCall.element.accept(this)
     Log.info(functionCall)
@@ -145,7 +146,7 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
   }
 
   override def visitFunctionLiteral(functionLiteral: FunctionLiteral) = {
-    Some(new ArchieElementFunction(functionLiteral.paramNames, functionLiteral.element))
+    Some(new ArchieElementFunction(functionLiteral.paramNames, functionLiteral.element, Some(context.scopeStack.top)))
   }
 
   override def visitInstantiation(instantiation: Instantiation) = {

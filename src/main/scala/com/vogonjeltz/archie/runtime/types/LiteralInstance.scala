@@ -32,9 +32,9 @@ class StringLiteralInstance(override val value: String) extends LiteralInstance(
 
   scope.set("+", new ArchieFunctionAdapter(List("other"), (s: Scope) => {
     Some(new StringLiteralInstance(value + s.get("other").get))
-  }))
+  }, Some(scope)))
 
-  def + (that: ArchieInstance) = runMember("+", List(that))
+  def + (that: ArchieInstance):Option[StringLiteralInstance] = runMember("+", List(that)).map(_.asInstanceOf[StringLiteralInstance])
 
   override def toString = value
 
@@ -55,7 +55,7 @@ sealed class NumericalInstance[T](_archieType: ArchieType, override val value: T
         case _ => None
       }
     }
-  }))
+  }, Some(scope)))
 
   scope.set("-", new ArchieFunctionAdapter(List("other"), (s: Scope) => {
     val otherVal = ProgramContext.instance.interpreter.visitFunctionCall(
@@ -68,7 +68,7 @@ sealed class NumericalInstance[T](_archieType: ArchieType, override val value: T
         case _ => None
       }
     }
-  }))
+  }, Some(scope)))
 
 }
 

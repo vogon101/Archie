@@ -1,5 +1,5 @@
 package com.vogonjeltz.archie.runtime.types
-import TypeHelpers._
+
 import com.vogonjeltz.archie.AST.tree.{Element, StringLiteral}
 import com.vogonjeltz.archie.runtime.state.{ProgramContext, Scope}
 
@@ -8,25 +8,31 @@ import com.vogonjeltz.archie.runtime.state.{ProgramContext, Scope}
   */
 class ArchieType(val name: String, val paramNames: List[String], val instantiationFunction: Scope => Unit, val superclass: Option[ArchieType] = None){
 
-  implicit class MemberName(s: String) {
+  import TypeHelpers._
 
-    def >>> (member: => ArchieInstance):Unit = addMember(s, () => member)
+  implicit class MemberName(name: String) {
+
+    def >>> (member: MemberDef): Unit = addMember(name, member)
 
   }
 
   lazy val wrapper = new ArchieTypeWrapper(this)
 
-  private var _members: Map[String, () => ArchieInstance] = Map()
+  private var _members: Map[String, MemberDef] = Map()
 
   def instantiate(params: List[ArchieInstance]):FullArchieInstance = new FullArchieInstance(this, params)
 
-  def addMember(name: String, member: () => ArchieInstance) = _members = members + (name -> member)
+  def addMember(name: String, member: MemberDef) = _members = members + (name -> member)
   def members = _members
 
-  def archieToString(s:Scope): Option[ArchieInstance] = S("Archie Instance ") + s.forceGet("hashCode")
+  def archieToString(s:Scope): Option[ArchieInstance] = S("Archie Instance of type ") + S(name) + S(" ") + S(s.container.hashCode.toString)
 
-  "toString" >>> Lazy (archieToString _ $)
+  "toString" >>> Lazy ((archieToString _).$)
   "hashCode" >>> Lazy (S(hashCode().toString))
+  "typeName" >>> Lazy (S(name))
+
+  println(s"Archie type created $name")
+
 
 }
 

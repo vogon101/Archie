@@ -1,6 +1,6 @@
 package com.vogonjeltz.archie.runtime.state
 
-import com.vogonjeltz.archie.runtime.types.{ArchieFunction, ArchieInstance, LazyArchieInstance}
+import com.vogonjeltz.archie.runtime.types.{ArchieFunction, ArchieInstance, LazyArchieFunction, LazyArchieInstance}
 
 import scala.collection.mutable
 
@@ -8,6 +8,8 @@ import scala.collection.mutable
   * Created by Freddie on 04/01/2017.
   */
 trait Scope {
+
+  val _container: Option[ArchieInstance] = None
 
   def set(name: String, instance: ArchieInstance): Unit
 
@@ -20,6 +22,11 @@ trait Scope {
   def isSet(name: String): Boolean
 
   def apply(name: String): Option[ArchieInstance] = get(name)
+
+  def container: ArchieInstance = _container match {
+    case Some(c) => c
+    case None => throw new Exception("Tried to access container of scope not contained")
+  }
 
 
   def getFunction(name:String): Option[ArchieFunction] = {
@@ -46,7 +53,15 @@ class ConcreteScope extends Scope {
   def get(name: String): Option[ArchieInstance] = {
     val value = variables.get(name)
     value match {
-      case Some(LazyArchieInstance(instance)) => Some(instance)
+      case Some(LazyArchieFunction(f)) => {
+        val instance = f(this)
+        set(name, instance)
+        Some(instance)
+      }
+      case Some(LazyArchieInstance(instance)) => {
+        set(name, instance)
+        Some(instance)
+      }
       case x => x
     }
   }

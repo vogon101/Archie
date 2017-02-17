@@ -26,7 +26,7 @@ object SimpleFileApp {
   def test(text: String) = {
 
     println("Testing function type")
-    val function = new ArchieFunctionAdapter(List(), (s: Scope) => null)
+    val function = new ArchieFunctionAdapter(List(), (s: Scope) => null, null)
     val wrapper = function.archieType.wrapper
 
   }
