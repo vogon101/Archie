@@ -15,6 +15,16 @@ class ProgramContext(val interpreter: Interpreter) {
 
   val availableLibs: mutable.HashMap[String, Library] = mutable.HashMap()
 
+  private var _classDef: Option[ArchieInstance] = None
+  def classDef = _classDef
+
+  def withClassDef[T](instance: ArchieInstance)(actions:  => T): T = {
+    _classDef = Some(instance)
+    val res = actions
+    _classDef = None
+    res
+  }
+
   //private var _currentContainer:
 
   //TODO: Refactor into a Library class

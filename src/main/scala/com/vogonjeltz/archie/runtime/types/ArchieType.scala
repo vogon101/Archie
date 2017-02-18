@@ -31,7 +31,7 @@ class ArchieType(val name: String, val paramNames: List[String], val instantiati
   "hashCode" >>> Lazy (S(hashCode().toString))
   "typeName" >>> Lazy (S(name))
 
-  println(s"Archie type created $name")
+  //println(s"Archie type created $name")
 
 
 }

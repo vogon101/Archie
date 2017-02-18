@@ -39,7 +39,7 @@ trait Scope {
 
 }
 
-class ConcreteScope extends Scope {
+class ConcreteScope(override val _container: Option[ArchieInstance] = None) extends Scope {
 
   private val variables = mutable.HashMap[String, ArchieInstance] ()
 

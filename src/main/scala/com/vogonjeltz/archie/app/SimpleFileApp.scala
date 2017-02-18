@@ -36,6 +36,7 @@ object SimpleFileApp {
     val interpreter = new Interpreter(4)
     interpreter.visitAST(parser.parsed)
     print("Value of 'this': ")
+    //FIXME:
     println(interpreter.context.scopeStack.get("this"))
   }
 

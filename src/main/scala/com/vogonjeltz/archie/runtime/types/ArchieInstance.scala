@@ -9,19 +9,28 @@ import com.vogonjeltz.archie.runtime.state.{ConcreteScope, ProgramContext, Scope
 abstract class ArchieInstance(val archieType: ArchieType, val constructorParams: List[ArchieInstance] = List()) {
 
   //println(archieType)
-  val scope: ScopeStack = new ScopeStack(Some(this))
+  lazy val scope: ScopeStack = new ScopeStack(Some(this))
   //println(s"Scope: $scope")
   scope.set("this", this)
 
 }
 
-class ArchieNone extends ArchieInstance(ArchieType.ArchieTypeType)
+class ArchieNone extends ArchieInstance(ArchieType.ArchieTypeType) {
+
+  override def toString: String = "None"
+
+}
 
 object ArchieNone {
-  def apply(): ArchieNone = new ArchieNone()
+
+  lazy val instance = new ArchieNone()
+
+  def apply(): ArchieNone = instance
 }
 
 class FullArchieInstance(_at: ArchieType, _constructorParams: List[ArchieInstance] = List()) extends ArchieInstance(_at, _constructorParams) {
+
+  //TODO: Stop working in Option[ArchieInstance] and start using ArchieInstance with ArchieNone
 
   def runMember(name: String, args: List[ArchieInstance] = List()):Option[ArchieInstance] =  {
     //TODO: Make this more debuggable
@@ -48,8 +57,9 @@ class FullArchieInstance(_at: ArchieType, _constructorParams: List[ArchieInstanc
     scope.set(param._2, param._1)
   }
 
-  ProgramContext.instance.scopeStack.push(scope) (archieType.instantiationFunction(_))
+  scope.set("this", this)
+  ProgramContext.instance.scopeStack.push(scope) (archieType.instantiationFunction)
 
-  override def toString = runMember("toString").toString
+  override def toString = archieType.archieToString(scope).getOrElse(ArchieNone()).toString
 
 }

@@ -14,7 +14,7 @@ class ElementVisitor extends ArchieVisitor[Element]{
   lazy val nameListVisitor = new NameListVisitor()
   lazy val literalVisitor = new LiteralVisitor()
 
-  override def visitBracketedElement(ctx: BracketedElementContext) = {
+  override def visitBracketedElement(ctx: BracketedElementContext): Element = {
     ctx.element().accept(this)
   }
 
@@ -85,6 +85,21 @@ class ElementVisitor extends ArchieVisitor[Element]{
       ctx.instantiation().name().getText,
       ctx.instantiation().elementList().accept(elementListVisitor)
     )
+  }
+
+  override def visitIf(ctx: IfContext): Element = {
+    val condition = ctx.element(0).accept(this)
+    val onTrue = ctx.element(1).accept(this)
+    val onFalse = None
+    Conditional(condition, onTrue, onFalse)
+  }
+
+  override def visitElseElement(ctx: ElseElementContext): Element = {
+    val condition = ctx.element(0).accept(this)
+    val onTrue = ctx.element(1).accept(this)
+    println(ctx.element().length)
+    val onFalse = Some(ctx.element(2).accept(this))
+    Conditional(condition, onTrue, onFalse)
   }
 
 }

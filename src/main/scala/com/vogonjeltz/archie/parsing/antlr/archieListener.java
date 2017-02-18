@@ -1,4 +1,4 @@
-// Generated from C:/Users/Freddie/Google Drive/Programming/IdeaProjects/Archie/src/main/scala/com/vogonjeltz/archie/parsing/antlr\archie.g4 by ANTLR 4.6
+// Generated from archie.g4 by ANTLR 4.6
 package com.vogonjeltz.archie.parsing.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -84,6 +84,18 @@ public interface archieListener extends ParseTreeListener {
 	 */
 	void exitTextID(archieParser.TextIDContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code elseElement}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void enterElseElement(archieParser.ElseElementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code elseElement}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void exitElseElement(archieParser.ElseElementContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code codeBlock}
 	 * labeled alternative in {@link archieParser#element}.
 	 * @param ctx the parse tree
@@ -143,6 +155,18 @@ public interface archieListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitNewObj(archieParser.NewObjContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code if}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void enterIf(archieParser.IfContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code if}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void exitIf(archieParser.IfContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code opFunctionCall}
 	 * labeled alternative in {@link archieParser#element}.

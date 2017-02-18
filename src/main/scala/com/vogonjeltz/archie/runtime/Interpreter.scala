@@ -2,7 +2,7 @@ package com.vogonjeltz.archie.runtime
 
 import com.vogonjeltz.archie.AST.tree._
 import com.vogonjeltz.archie.AST.TreeWalk.ASTVisitor
-import com.vogonjeltz.archie.runtime.state.{ConcreteScope, ProgramContext, Scope}
+import com.vogonjeltz.archie.runtime.state.{ConcreteScope, ProgramContext, Scope, ScopeStack}
 import com.vogonjeltz.archie.runtime.types._
 import com.vogonjeltz.archie.utils.Log
 
@@ -27,7 +27,9 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
     Log.info("Entering classdef")
     Log.info(classDef.params)
     val typ = new ArchieType(classDef.name, classDef.params, (s: Scope) => {
-      classDef.body.map(_.accept(this))
+      context.withClassDef(s.container) {
+        classDef.body.map(_.accept(this))
+      }
     })
     Log.info(typ.name)
     Log.info(typ.paramNames)
@@ -83,11 +85,14 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
     val scope: Scope = new ConcreteScope()
     arguments.map(_.get).zip(function.paramNames).foreach(Z => scope.set(Z._2, Z._1))
 
+    val scopeStack: ScopeStack = new ScopeStack(None, function.container.map(_.scope))
+    scopeStack.pushScope(scope)
+
     function match {
       case f: ArchieFunctionAdapter =>
-        context.scopeStack.push(scope)(f.f)
+        context.scopeStack.push(scopeStack)(f.f)
       case f: ArchieElementFunction =>
-        context.scopeStack.push[Option[ArchieInstance]](scope)((S: Scope) => f.e.accept(this))
+        context.scopeStack.push[Option[ArchieInstance]](scopeStack)((S: Scope) => f.e.accept(this))
     }
   }
 
@@ -146,7 +151,10 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
   }
 
   override def visitFunctionLiteral(functionLiteral: FunctionLiteral) = {
-    Some(new ArchieElementFunction(functionLiteral.paramNames, functionLiteral.element, Some(context.scopeStack.top)))
+    //println("Class def: ")
+    //println(context.classDef)
+    val closure = Some(context.classDef.map(_.scope).getOrElse(context.scopeStack))
+    Some(new ArchieElementFunction(functionLiteral.paramNames, functionLiteral.element, closure, context.classDef))
   }
 
   override def visitInstantiation(instantiation: Instantiation) = {
@@ -163,6 +171,18 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
         Some(new FullArchieInstance(archieTypeWrapper.wrappedArchieType, arguments.map(_.get)))
       case _ => throw new Exception(s"Tried to instantiate non-type (${archieType.get})")
     }
+  }
+
+  override def visitConditional(ifStatement: Conditional): Option[ArchieInstance] = {
+    //TODO: Make this easier to debug
+    val conditional = ifStatement
+      .condition.accept(this)
+      .filter(_.isInstanceOf[BooleanLiteralInstance])
+      .map(_.asInstanceOf[BooleanLiteralInstance].value)
+    if (conditional.isEmpty) throw new Exception("Conditional value for if statement is None")
+    if(conditional.get) ifStatement.onTrue.accept(this)
+    else if(ifStatement.onFalse.isDefined) ifStatement.onFalse.flatMap(_.accept(this))
+    else None
   }
 
 }

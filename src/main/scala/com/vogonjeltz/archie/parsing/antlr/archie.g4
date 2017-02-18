@@ -1,11 +1,11 @@
 grammar archie;
 // Parser Rules
 
-program: '\n'* line* EOF;
+program: '\n'? line* EOF;
 
 line
  : classDef '\n'+
- | element COMMENT? (';' | '\n')+
+ | element (';' | '\n')+
  | COMMENT
 
  ;
@@ -22,13 +22,16 @@ element
  | element name element                                        #opFunctionCall
  | element  elementList                                        #functionCall//Function Call
  | nameList  FARROW  element                                   #functionLiteral//Function Literal
+ | O_C_BRACK '\n'* (element (';' | '\n')+)* element? C_C_BRACK #codeBlock
+ | identifier EQ element                                       #assignment//assignment
+ | IF O_R_BRACK element C_R_BRACK ('\n')? element ('\n' | ';')? ELSE element #elseElement
+ | IF O_R_BRACK element C_R_BRACK ('\n')? element              #if
  | identifier                                                  #textID
  | element  (DOT name)+                                        #combinedID//CombinedID
- | O_C_BRACK '\n'* (element (';' | '\n')+)* element? C_C_BRACK #codeBlock
  | instantiation                                               #newObj
- | identifier EQ element                                       #assignment//assignment
  | value                                                       #literal
  ;
+
 
 instantiation: 'new' name elementList;
 
@@ -45,11 +48,14 @@ value
  | booleanLiteral
  ;
 
+IF: 'if';
+ELSE: 'else';
+
 booleanLiteral: 'true' | 'false';
 stringLiteral: STRING_LITERAL_TOKEN;
 floatLiteral: NUMERIC+ ( ( (DOT NUMERIC+) ('f' | 'F')? ) | ('f' | 'F') );
 integerLiteral: NUMERIC+;
-name: ALPHA_NUMERIC_NAME | SYMBOL | EQ EQ+;
+name: ALPHA_NUMERIC_NAME | SYMBOL;
 
 CLASS: 'class';
 
@@ -57,7 +63,7 @@ fragment ESCAPED_QUOTE : '\\"';
 STRING_LITERAL_TOKEN :   '"' ( ESCAPED_QUOTE | ~('\n'|'\r') )*? '"';
 
 ALPHA_NUMERIC_NAME: [A-Za-z_][A-Za-z0-9_]*;
-SYMBOL: [~!$^*&+#<>?|\\-/]+[=]*;
+SYMBOL: [~!$^*&+#<>?|\-]+;
 
 CLASS_NAME: [A-Za-z_][A-Za-z0-9_]*;
 
@@ -77,3 +83,4 @@ O_R_BRACK: '(';
 C_R_BRACK: ')';
 O_C_BRACK: '{';
 C_C_BRACK: '}';
+

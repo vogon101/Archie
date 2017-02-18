@@ -5,8 +5,11 @@ class Person(name, age) {
 
     test = "abs"
 
-    that = () => {
-        println("Hello " + this.name)
+    that = (thing) => {
+        println(thing)
+        println("Hello ----------------====")
+        println("Hello " + name)
+        println(this.name)
     }
 
 
@@ -17,10 +20,12 @@ printPerson  = (person) => {
 }
 println("This is a test")
 
+println("-------------------------------")
 freddie = new Person("Freddie", 16)
 james = new Person("James", 17)
 
 printPerson(freddie)
 println(freddie.test)
-println(freddie)
-freddie.that()
+println(freddie.that)
+freddie.that("HELLO THIS IS A THING")
+println(printPerson)
