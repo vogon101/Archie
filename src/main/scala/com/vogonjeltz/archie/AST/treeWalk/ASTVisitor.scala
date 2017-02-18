@@ -34,6 +34,8 @@ abstract class ASTVisitor[T] {
 
   def visitClassDef(classDef: ClassDef) = default(classDef)
 
+  def visitConditional(ifStatement:Conditional) = default(ifStatement)
+
 }
 
 abstract class ASTTransformVisitor[R <: Line] extends ASTVisitor[Line] {

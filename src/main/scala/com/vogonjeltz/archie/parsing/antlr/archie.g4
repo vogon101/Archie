@@ -22,13 +22,16 @@ element
  | element name element                                        #opFunctionCall
  | element  elementList                                        #functionCall//Function Call
  | nameList  FARROW  element                                   #functionLiteral//Function Literal
- | identifier                                                  #textID
- | element  (DOT name)+                                        #combinedID//CombinedID
  | O_C_BRACK '\n'* (element (';' | '\n')+)* element? C_C_BRACK #codeBlock
  | identifier EQ element                                       #assignment//assignment
+ | IF O_R_BRACK element C_R_BRACK ('\n')? element ('\n' | ';')? ELSE element #elseElement
+ | IF O_R_BRACK element C_R_BRACK ('\n')? element              #if
+ | identifier                                                  #textID
+ | element  (DOT name)+                                        #combinedID//CombinedID
  | instantiation                                               #newObj
  | value                                                       #literal
  ;
+
 
 instantiation: 'new' name elementList;
 
@@ -44,6 +47,9 @@ value
  | stringLiteral
  | booleanLiteral
  ;
+
+IF: 'if';
+ELSE: 'else';
 
 booleanLiteral: 'true' | 'false';
 stringLiteral: STRING_LITERAL_TOKEN;
@@ -77,3 +83,4 @@ O_R_BRACK: '(';
 C_R_BRACK: ')';
 O_C_BRACK: '{';
 C_C_BRACK: '}';
+

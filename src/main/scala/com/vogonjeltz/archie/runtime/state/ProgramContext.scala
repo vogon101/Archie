@@ -2,6 +2,7 @@ package com.vogonjeltz.archie.runtime.state
 
 import com.vogonjeltz.archie.runtime.Interpreter
 import com.vogonjeltz.archie.runtime.library.{Library, STDLib}
+import com.vogonjeltz.archie.runtime.types.ArchieInstance
 
 import scala.collection.mutable
 
@@ -13,6 +14,18 @@ class ProgramContext(val interpreter: Interpreter) {
   val scopeStack = new ScopeStack
 
   val availableLibs: mutable.HashMap[String, Library] = mutable.HashMap()
+
+  private var _classDef: Option[ArchieInstance] = None
+  def classDef = _classDef
+
+  def withClassDef[T](instance: ArchieInstance)(actions:  => T): T = {
+    _classDef = Some(instance)
+    val res = actions
+    _classDef = None
+    res
+  }
+
+  //private var _currentContainer:
 
   //TODO: Refactor into a Library class
   def loadLibrary(lib: Library): Unit = {

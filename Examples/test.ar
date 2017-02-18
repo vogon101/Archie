@@ -1,14 +1,31 @@
+println("This is a test")
 class Person(name, age) {
 
     println("Person " + name + " is " + age)
+
+    test = "abs"
+
+    that = (thing) => {
+        println(thing)
+        println("Hello ----------------====")
+        println("Hello " + name)
+        println(this.name)
+    }
+
 
 }
 
 printPerson  = (person) => {
     println("Person " + person.name)
 }
+println("This is a test")
 
+println("-------------------------------")
 freddie = new Person("Freddie", 16)
 james = new Person("James", 17)
 
 printPerson(freddie)
+println(freddie.test)
+println(freddie.that)
+freddie.that("HELLO THIS IS A THING")
+println(printPerson)

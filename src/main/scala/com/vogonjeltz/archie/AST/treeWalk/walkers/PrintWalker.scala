@@ -111,4 +111,18 @@ class PrintWalker extends ASTVisitor[Unit]{
     }
   }
 
+  override def visitConditional(ifStatement: Conditional): Unit = {
+    indent("Conditional: ") {
+      indent("Condition: ") {
+        ifStatement.condition.accept(this)
+      }
+      indent("onTrue: ") {
+        ifStatement.onTrue.accept(this)
+      }
+      indent("onFalse: ") {
+        ifStatement.onFalse.foreach(_.accept(this))
+      }
+    }
+  }
+
 }

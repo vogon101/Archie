@@ -26,7 +26,7 @@ object SimpleFileApp {
   def test(text: String) = {
 
     println("Testing function type")
-    val function = new ArchieFunctionAdapter(List(), (s: Scope) => null)
+    val function = new ArchieFunctionAdapter(List(), (s: Scope) => null, null)
     val wrapper = function.archieType.wrapper
 
   }
@@ -36,6 +36,7 @@ object SimpleFileApp {
     val interpreter = new Interpreter(4)
     interpreter.visitAST(parser.parsed)
     print("Value of 'this': ")
+    //FIXME:
     println(interpreter.context.scopeStack.get("this"))
   }
 
