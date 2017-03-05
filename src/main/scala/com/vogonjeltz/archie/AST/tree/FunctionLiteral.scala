@@ -7,7 +7,7 @@ import com.vogonjeltz.archie.AST.TreeWalk.ASTVisitor
   *
   * Created by fredd
   */
-case class FunctionLiteral(paramNames: List[String], element: Element) extends Element {
+case class FunctionLiteral(paramNames: List[String], element: Element)(implicit _sr: SourceReference) extends Element {
 
   override def accept[T](astVisitor: ASTVisitor[T]) = astVisitor.visitFunctionLiteral(this)
 

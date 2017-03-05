@@ -36,6 +36,8 @@ abstract class ASTVisitor[T] {
 
   def visitConditional(ifStatement:Conditional) = default(ifStatement)
 
+  def visitWhile(whileLoop: WhileLoop) = default(whileLoop)
+
 }
 
 abstract class ASTTransformVisitor[R <: Line] extends ASTVisitor[Line] {
@@ -47,7 +49,7 @@ abstract class ASTTransformVisitor[R <: Line] extends ASTVisitor[Line] {
   override def visitCodeBlock(codeBlock: CodeBlock): CodeBlock = {
     CodeBlock(
       codeBlock.lines.map(_.accept(this))
-    )
+    )(codeBlock.sourceReference)
   }
 
   def visitElement(e: Element) = e.accept(this)

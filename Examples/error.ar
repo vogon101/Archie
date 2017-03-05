@@ -1,0 +1,13 @@
+errorFunction = () => {
+
+    a = "test"
+    a.errorFunction()
+
+
+}
+
+otherFunction = () => errorFunction()
+
+println(otherFunction)
+println(errorFunction)
+otherFunction()

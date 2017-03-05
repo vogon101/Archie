@@ -5,24 +5,24 @@ import com.vogonjeltz.archie.AST.TreeWalk.ASTVisitor
 /**
   * Created by Freddie on 03/01/2017.
   */
-trait Literal extends Element {
+abstract class Literal(implicit _sr: SourceReference) extends Element {
 
   override def accept[T](astVisitor: ASTVisitor[T]) = astVisitor.visitLiteral(this)
 
 }
 
-case class StringLiteral(text: String) extends Literal {
+case class StringLiteral(text: String)(implicit _sr: SourceReference) extends Literal {
 
 }
 
-case class IntegerLiteral(value: Int) extends Literal {
+case class IntegerLiteral(value: Int)(implicit _sr: SourceReference) extends Literal {
 
 }
 
-case class FloatLiteral(value: Float) extends Literal {
+case class FloatLiteral(value: Float)(implicit _sr: SourceReference) extends Literal {
 
 }
 
-case class BooleanLiteral(value: Boolean) extends Literal {
+case class BooleanLiteral(value: Boolean)(implicit _sr: SourceReference) extends Literal {
 
 }

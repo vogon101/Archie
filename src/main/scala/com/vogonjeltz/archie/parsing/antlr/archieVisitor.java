@@ -1,4 +1,4 @@
-// Generated from archie.g4 by ANTLR 4.6
+// Generated from C:/Users/Freddie/Google Drive/Programming/IdeaProjects/Archie/src/main/scala/com/vogonjeltz/archie/parsing/antlr\archie.g4 by ANTLR 4.6
 package com.vogonjeltz.archie.parsing.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -49,13 +49,6 @@ public interface archieVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBracketedElement(archieParser.BracketedElementContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code textID}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTextID(archieParser.TextIDContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code elseElement}
 	 * labeled alternative in {@link archieParser#element}.
 	 * @param ctx the parse tree
@@ -63,19 +56,47 @@ public interface archieVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElseElement(archieParser.ElseElementContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code codeBlock}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCodeBlock(archieParser.CodeBlockContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code assignment}
 	 * labeled alternative in {@link archieParser#element}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAssignment(archieParser.AssignmentContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code whileElement}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhileElement(archieParser.WhileElementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code newObj}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNewObj(archieParser.NewObjContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code literal}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLiteral(archieParser.LiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code textID}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTextID(archieParser.TextIDContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code codeBlock}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCodeBlock(archieParser.CodeBlockContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code functionCall}
 	 * labeled alternative in {@link archieParser#element}.
@@ -91,13 +112,6 @@ public interface archieVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunctionLiteral(archieParser.FunctionLiteralContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code newObj}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNewObj(archieParser.NewObjContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code if}
 	 * labeled alternative in {@link archieParser#element}.
 	 * @param ctx the parse tree
@@ -111,13 +125,6 @@ public interface archieVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitOpFunctionCall(archieParser.OpFunctionCallContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code literal}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLiteral(archieParser.LiteralContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link archieParser#instantiation}.
 	 * @param ctx the parse tree

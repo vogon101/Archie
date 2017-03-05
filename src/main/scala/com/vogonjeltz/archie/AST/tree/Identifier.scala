@@ -7,17 +7,17 @@ import com.vogonjeltz.archie.AST.TreeWalk.ASTVisitor
   *
   * Created by fredd
   */
-sealed abstract class Identifier extends Element {
+sealed abstract class Identifier(implicit _sr: SourceReference) extends Element {
 
   override def accept[T](astVisitor: ASTVisitor[T]) = astVisitor.visitIdentifier(this)
 
 }
 
-case class CompositeID(element: Element, textID: TextID) extends Identifier {
+case class CompositeID(element: Element, textID: TextID)(implicit _sr: SourceReference) extends Identifier {
 
 }
 
-case class TextID(resolvePath: List[String]) extends Identifier {
+case class TextID(resolvePath: List[String])(implicit _sr: SourceReference) extends Identifier {
 
   def contextPath: TextID = if (resolvePath.nonEmpty) TextID(resolvePath.init) else TextID(List())
 

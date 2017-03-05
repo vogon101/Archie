@@ -1,4 +1,4 @@
-// Generated from archie.g4 by ANTLR 4.6
+// Generated from C:/Users/Freddie/Google Drive/Programming/IdeaProjects/Archie/src/main/scala/com/vogonjeltz/archie/parsing/antlr\archie.g4 by ANTLR 4.6
 package com.vogonjeltz.archie.parsing.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -72,18 +72,6 @@ public interface archieListener extends ParseTreeListener {
 	 */
 	void exitBracketedElement(archieParser.BracketedElementContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code textID}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 */
-	void enterTextID(archieParser.TextIDContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code textID}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 */
-	void exitTextID(archieParser.TextIDContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code elseElement}
 	 * labeled alternative in {@link archieParser#element}.
 	 * @param ctx the parse tree
@@ -96,18 +84,6 @@ public interface archieListener extends ParseTreeListener {
 	 */
 	void exitElseElement(archieParser.ElseElementContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code codeBlock}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 */
-	void enterCodeBlock(archieParser.CodeBlockContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code codeBlock}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 */
-	void exitCodeBlock(archieParser.CodeBlockContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code assignment}
 	 * labeled alternative in {@link archieParser#element}.
 	 * @param ctx the parse tree
@@ -119,6 +95,66 @@ public interface archieListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAssignment(archieParser.AssignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code whileElement}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhileElement(archieParser.WhileElementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code whileElement}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhileElement(archieParser.WhileElementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code newObj}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void enterNewObj(archieParser.NewObjContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code newObj}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void exitNewObj(archieParser.NewObjContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code literal}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteral(archieParser.LiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code literal}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteral(archieParser.LiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code textID}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextID(archieParser.TextIDContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code textID}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextID(archieParser.TextIDContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code codeBlock}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void enterCodeBlock(archieParser.CodeBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code codeBlock}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void exitCodeBlock(archieParser.CodeBlockContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code functionCall}
 	 * labeled alternative in {@link archieParser#element}.
@@ -144,18 +180,6 @@ public interface archieListener extends ParseTreeListener {
 	 */
 	void exitFunctionLiteral(archieParser.FunctionLiteralContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code newObj}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 */
-	void enterNewObj(archieParser.NewObjContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code newObj}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 */
-	void exitNewObj(archieParser.NewObjContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code if}
 	 * labeled alternative in {@link archieParser#element}.
 	 * @param ctx the parse tree
@@ -179,18 +203,6 @@ public interface archieListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitOpFunctionCall(archieParser.OpFunctionCallContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code literal}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 */
-	void enterLiteral(archieParser.LiteralContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code literal}
-	 * labeled alternative in {@link archieParser#element}.
-	 * @param ctx the parse tree
-	 */
-	void exitLiteral(archieParser.LiteralContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link archieParser#instantiation}.
 	 * @param ctx the parse tree

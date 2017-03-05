@@ -1,6 +1,6 @@
 package com.vogonjeltz.archie.runtime.state
 
-import com.vogonjeltz.archie.runtime.types.{ArchieFunction, ArchieInstance, LazyArchieFunction, LazyArchieInstance}
+import com.vogonjeltz.archie.runtime.types._
 
 import scala.collection.mutable
 
@@ -9,7 +9,7 @@ import scala.collection.mutable
   */
 trait Scope {
 
-  val _container: Option[ArchieInstance] = None
+  val _container: Option[ArchieInstance]
 
   def set(name: String, instance: ArchieInstance): Unit
 
@@ -39,7 +39,7 @@ trait Scope {
 
 }
 
-class ConcreteScope(override val _container: Option[ArchieInstance] = None) extends Scope {
+class ConcreteScope(override val _container: Option[ArchieInstance]) extends Scope {
 
   private val variables = mutable.HashMap[String, ArchieInstance] ()
 
@@ -53,15 +53,15 @@ class ConcreteScope(override val _container: Option[ArchieInstance] = None) exte
   def get(name: String): Option[ArchieInstance] = {
     val value = variables.get(name)
     value match {
-      case Some(LazyArchieFunction(f)) => {
-        val instance = f(this)
+      case Some(LazyWrappedFunction(f)) =>
+        val instance = f(_container)
         set(name, instance)
         Some(instance)
-      }
-      case Some(LazyArchieInstance(instance)) => {
+
+      case Some(LazyWrappedInstance(instance)) =>
         set(name, instance)
         Some(instance)
-      }
+
       case x => x
     }
   }
