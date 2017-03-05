@@ -43,7 +43,7 @@ class ASTTransform {
     new AST(
       ast.lines.map {
         case c: Comment => c
-        case b: CodeBlock => CodeBlock(transformComplexElements(b)(T).lines)
+        case b: CodeBlock => CodeBlock(transformComplexElements(b)(T).lines)(b.sourceReference)
         case e: Element => T(e)
       }
     )

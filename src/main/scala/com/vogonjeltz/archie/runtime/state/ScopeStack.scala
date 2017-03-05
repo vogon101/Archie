@@ -7,7 +7,8 @@ import scala.collection.mutable
 /**
   * Created by Freddie on 04/01/2017.
   */
-class ScopeStack(override val _container: Option[ArchieInstance] = None, val baseScope:Option[Scope] = None) extends Scope {
+class ScopeStack(override val _container: Option[ArchieInstance], val baseScope:Option[Scope] = None) extends Scope {
+
 
   override def container: ArchieInstance = _container match {
     case Some(instance) => instance
@@ -15,8 +16,8 @@ class ScopeStack(override val _container: Option[ArchieInstance] = None, val bas
   }
 
   private val scopes: mutable.Stack[Scope] =
-    if (baseScope.isDefined) mutable.Stack(baseScope.getOrElse(new ConcreteScope), new ConcreteScope)
-    else mutable.Stack(new ConcreteScope)
+    if (baseScope.isDefined) mutable.Stack(baseScope.getOrElse(new ConcreteScope(_container)), new ConcreteScope(_container))
+    else mutable.Stack(new ConcreteScope(_container))
 
   def push[T](scope: Scope)(f: (Scope) => T): T = {
     scopes.push(scope)
@@ -25,7 +26,7 @@ class ScopeStack(override val _container: Option[ArchieInstance] = None, val bas
     retVal
   }
 
-  def push[T](f: Scope => T): T = push(new ConcreteScope)(f)
+  def push[T](f: Scope => T): T = push(new ConcreteScope(_container))(f)
 
   def pushScope(s:Scope): Unit = scopes.push(s)
   def pop(): Unit = scopes.pop()

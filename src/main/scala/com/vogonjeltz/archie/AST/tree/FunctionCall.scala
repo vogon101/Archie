@@ -7,7 +7,7 @@ import com.vogonjeltz.archie.AST.TreeWalk.ASTVisitor
   *
   * Created by fredd
   */
-case class FunctionCall(element: Element, arguments: List[Element]) extends Element {
+case class FunctionCall(element: Element, arguments: List[Element])(implicit _sr: SourceReference) extends Element {
 
   override def accept[T](astVisitor: ASTVisitor[T]) = astVisitor.visitFunctionCall(this)
 

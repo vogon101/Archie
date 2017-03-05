@@ -19,13 +19,14 @@ classHeader
 
 element
  : O_R_BRACK element C_R_BRACK                                 #bracketedElement
- | element name element                                        #opFunctionCall
  | element  elementList                                        #functionCall//Function Call
+ | element name element                                        #opFunctionCall
  | nameList  FARROW  element                                   #functionLiteral//Function Literal
  | O_C_BRACK '\n'* (element (';' | '\n')+)* element? C_C_BRACK #codeBlock
  | identifier EQ element                                       #assignment//assignment
  | IF O_R_BRACK element C_R_BRACK ('\n')? element ('\n' | ';')? ELSE element #elseElement
  | IF O_R_BRACK element C_R_BRACK ('\n')? element              #if
+ | WHILE O_R_BRACK element C_R_BRACK ('\n')? element           #whileElement
  | identifier                                                  #textID
  | element  (DOT name)+                                        #combinedID//CombinedID
  | instantiation                                               #newObj
@@ -48,16 +49,18 @@ value
  | booleanLiteral
  ;
 
-IF: 'if';
-ELSE: 'else';
+
 
 booleanLiteral: 'true' | 'false';
 stringLiteral: STRING_LITERAL_TOKEN;
 floatLiteral: NUMERIC+ ( ( (DOT NUMERIC+) ('f' | 'F')? ) | ('f' | 'F') );
 integerLiteral: NUMERIC+;
-name: ALPHA_NUMERIC_NAME | SYMBOL;
+name: ALPHA_NUMERIC_NAME | SYMBOL | EQ (EQ)+;
 
+IF: 'if';
+ELSE: 'else';
 CLASS: 'class';
+WHILE: 'while';
 
 fragment ESCAPED_QUOTE : '\\"';
 STRING_LITERAL_TOKEN :   '"' ( ESCAPED_QUOTE | ~('\n'|'\r') )*? '"';
@@ -83,4 +86,3 @@ O_R_BRACK: '(';
 C_R_BRACK: ')';
 O_C_BRACK: '{';
 C_C_BRACK: '}';
-

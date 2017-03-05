@@ -6,12 +6,13 @@ import com.vogonjeltz.archie.runtime.state.{ConcreteScope, ProgramContext, Scope
 /**
   * Created by Freddie on 04/01/2017.
   */
-abstract class ArchieInstance(val archieType: ArchieType, val constructorParams: List[ArchieInstance] = List()) {
+abstract class ArchieInstance(val archieType: ArchieType, val constructorParams: List[ArchieInstance] = List(), suppressThisRef: Boolean = false) {
 
   //println(archieType)
   lazy val scope: ScopeStack = new ScopeStack(Some(this))
   //println(s"Scope: $scope")
-  scope.set("this", this)
+  if(!suppressThisRef)
+    scope.set("this", this)
 
 }
 
@@ -28,7 +29,7 @@ object ArchieNone {
   def apply(): ArchieNone = instance
 }
 
-class FullArchieInstance(_at: ArchieType, _constructorParams: List[ArchieInstance] = List()) extends ArchieInstance(_at, _constructorParams) {
+class FullArchieInstance(_at: ArchieType, _constructorParams: List[ArchieInstance] = List(), suppressThisRef:Boolean = false) extends ArchieInstance(_at, _constructorParams, suppressThisRef) {
 
   //TODO: Stop working in Option[ArchieInstance] and start using ArchieInstance with ArchieNone
 
@@ -46,8 +47,13 @@ class FullArchieInstance(_at: ArchieType, _constructorParams: List[ArchieInstanc
     scope.get(name).filter(_.isInstanceOf[ArchieFunction]).map(_.asInstanceOf[ArchieFunction]).flatMap(_.run(args))
   }
 
-  for((name, member) <- archieType.members)
-    scope.set(name, member.get(scope))
+  for((name, member) <- archieType.members) {
+    //println(Some(this))
+    val memberInstance = member.get(Some(this))
+
+    scope.set(name, member.get(Some(this)))
+
+  }
 
   if (constructorParams.length != archieType.paramNames.length) {
     throw new Exception(s"Wrong number of params for ${archieType.name} instantiation (Got ${constructorParams.length}, expected ${archieType.paramNames.length}")
@@ -57,7 +63,6 @@ class FullArchieInstance(_at: ArchieType, _constructorParams: List[ArchieInstanc
     scope.set(param._2, param._1)
   }
 
-  scope.set("this", this)
   ProgramContext.instance.scopeStack.push(scope) (archieType.instantiationFunction)
 
   override def toString = archieType.archieToString(scope).getOrElse(ArchieNone()).toString

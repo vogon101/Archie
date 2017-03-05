@@ -13,7 +13,7 @@ class PrintWalker extends ASTVisitor[Unit]{
   private var level: Int = 0
 
   def indent(text: String)(f: => Unit) = {
-    println(("\t" * level) + text)
+    println(("|\t" * level) + text)
     level += 1
     f
     level -= 1
@@ -125,4 +125,14 @@ class PrintWalker extends ASTVisitor[Unit]{
     }
   }
 
+  override def visitWhile(whileLoop: WhileLoop): Unit = {
+    indent("While Loop:") {
+      indent("condition:"){
+        whileLoop.condition.accept(this)
+      }
+      indent("Body:"){
+        whileLoop.block.accept(this)
+      }
+    }
+  }
 }
