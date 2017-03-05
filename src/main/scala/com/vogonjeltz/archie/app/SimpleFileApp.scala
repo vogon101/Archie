@@ -4,7 +4,7 @@ import java.io.FileNotFoundException
 
 import com.vogonjeltz.archie.AST.TreeWalk.walkers.PrintWalker
 import com.vogonjeltz.archie.parsing.ParserCore
-import com.vogonjeltz.archie.runtime.Interpreter
+import com.vogonjeltz.archie.runtime.{ArchieException, Interpreter}
 import com.vogonjeltz.archie.runtime.state.Scope
 import com.vogonjeltz.archie.runtime.types.{ArchieFunction, ArchieFunctionAdapter, ArchieTypeWrapper}
 
@@ -34,7 +34,11 @@ object SimpleFileApp {
   def run(text: String) = {
     val parser = new ParserCore(text)
     val interpreter = new Interpreter(4)
-    interpreter.visitAST(parser.parsed)
+    try {
+      interpreter.visitAST(parser.parsed)
+    } catch {
+      case e: ArchieException => println(e.getArchieStackTrace)
+    }
     print("Value of 'this': ")
     //FIXME:
     println(interpreter.context.scopeStack.get("this"))

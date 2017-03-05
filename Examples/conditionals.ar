@@ -15,3 +15,9 @@ if(thing) {
 
 println( if (name) "3. YES")
 println( if (thing) "4. NO" else "Hell yes")
+
+a = 0
+while (a < 5) {
+    println(a)
+    a = a +1
+}

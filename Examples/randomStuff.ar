@@ -1,0 +1,10 @@
+fib = (n) => {
+    println(n)
+    return
+    if (n.equals(1)) 1
+    else fib(n - 1)
+}
+
+println(1.equals.container)
+println(1 equals 1)
+println(fib(10))

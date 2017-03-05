@@ -15,17 +15,17 @@ class Logger(prefix: String, val level: Int = 4, colour: String = Console.WHITE)
     * Log text to the screen
     * @param text Text to output
     */
-  def log(text: {def toString: String}) =
+  def log(text: Any) =
     if (Log.enabled && level >= Log.level)
       println(
-        s"[${if (Log.coloursEnabled) colour else ""}$prefix${if (Log.coloursEnabled) Console.WHITE else ""}] $text"
+        s"[${if (Log.coloursEnabled) colour else ""}$prefix${if (Log.coloursEnabled) Console.WHITE else ""}] ${text.toString}"
       )
 
   /**
     * Log text to screen
     * @param text Text to output
     */
-  def apply(text: {def toString: String}) = log(text)
+  def apply(text: Any) = log(text)
 
 }
 

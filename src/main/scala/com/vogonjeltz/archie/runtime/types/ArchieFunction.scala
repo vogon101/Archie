@@ -10,7 +10,9 @@ abstract class ArchieFunction(val paramNames: List[String] = List(), val baseSco
 
   override lazy val scope: ScopeStack = new ScopeStack(Some(this), baseScope)
 
+  println(container)
   scope.set("this", container.getOrElse(this))
+  scope.set("container", container.getOrElse(ArchieNone()))
   //println(s"Scope : $scope")
 
   def run(params: List[ArchieInstance]): Option[ArchieInstance]

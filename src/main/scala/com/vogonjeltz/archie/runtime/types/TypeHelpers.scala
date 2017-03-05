@@ -16,7 +16,7 @@ object TypeHelpers {
 
   def memberFunction(params: List[String], function: (Scope) => Option[ArchieInstance]):MemberFunctionDef =
     new MemberFunctionDef(
-      (closure: Scope) => new ArchieFunctionAdapter(params, function, Some(closure))
+      (closure: Scope, container: ArchieInstance) => new ArchieFunctionAdapter(params, function, Some(closure), Some(container))
     )
 
   implicit class ParamNames(val names: List[String]) {
@@ -33,28 +33,28 @@ object TypeHelpers {
 
   class MemberDef (private val _member: ArchieInstance) {
 
-    def get(s : Scope):ArchieInstance = _member
+    def get(s : Scope, i: ArchieInstance):ArchieInstance = _member
 
   }
 
   class LazyMemberDef (private val _member: () => ArchieInstance) extends MemberDef(ArchieNone()) {
 
-    override def get (s: Scope): LazyArchieInstance = LazyArchieInstance(_member)
+    override def get (s: Scope, i: ArchieInstance): LazyArchieInstance = LazyArchieInstance(_member)
 
   }
 
-  class MemberFunctionDef (val f: (Scope) => ArchieFunction) extends MemberDef(ArchieNone()){
+  class MemberFunctionDef (val f: (Scope, ArchieInstance) => ArchieFunction) extends MemberDef(ArchieNone()){
 
-    override def get (s: Scope):ArchieFunction = {
+    override def get (s: Scope, i: ArchieInstance):ArchieFunction = {
       //println("Getting a member function def")
-      f(s)
+      f(s, i)
     }
 
   }
 
   class LazyFunctionMemberDef (private val _member: (Scope) => ArchieFunction) extends LazyMemberDef(null) {
 
-    override def get(s: Scope): LazyArchieFunction = new LazyArchieFunction(_member)
+    override def get(s: Scope, i: ArchieInstance): LazyArchieFunction = new LazyArchieFunction(_member)
 
   }
 
@@ -74,5 +74,7 @@ object TypeHelpers {
     case Some(x) => x
     case _ => throw new Exception("Tried to unpack Option[ArchieInstance] but was null")
   }
+
+  implicit def archieInstanceToOption[T <: ArchieInstance](instance: T): Option[T] = Some(instance)
 
 }

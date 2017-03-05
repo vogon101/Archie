@@ -5,6 +5,6 @@ package com.vogonjeltz.archie.AST.tree
   *
   * Created by fredd
   */
-abstract class Element extends Line {
+abstract class Element (implicit val sourceReference: SourceReference) extends Line {
 
 }

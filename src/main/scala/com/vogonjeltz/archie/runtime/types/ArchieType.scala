@@ -27,9 +27,18 @@ class ArchieType(val name: String, val paramNames: List[String], val instantiati
 
   def archieToString(s:Scope): Option[ArchieInstance] = S("Archie Instance of type ") + S(name) + S(" ") + S(s.container.hashCode.toString)
 
+  def archieEquals(s: Scope): Option[ArchieInstance] = {
+    val thisInstance = s.get("this").get
+    val thatInstance = s.get("that").get
+    println(s"this: $thisInstance, that: $thatInstance")
+    BooleanLiteralInstance(thisInstance.equals(thatInstance))
+  }
+
   "toString" >>> Lazy ((archieToString _).$)
   "hashCode" >>> Lazy (S(hashCode().toString))
   "typeName" >>> Lazy (S(name))
+  "equals"   >>> Lazy (List("that") $ archieEquals)
+
 
   //println(s"Archie type created $name")
 
