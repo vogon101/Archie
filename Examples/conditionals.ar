@@ -1,8 +1,6 @@
 name = true
 thing = false
-println(
-    name
-)
+println(name)
 
 if (name) println("1. YES")
 else println("1. NO")
@@ -13,5 +11,14 @@ if(thing) {
     println("2. YES")
 }
 
+
+
 println( if (name) "3. YES")
-println( if (thing) "4. NO" else "Hell yes")
+println( if (thing) "4. NO" else "4. Hell yes")
+if (false) println("5. NO")
+else if (true) println("5. YES")
+
+if(false) println("6. NO")
+else if(false) println("6. NO")
+else if(false) println("6. NO")
+else println("6. YES")

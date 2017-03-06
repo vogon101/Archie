@@ -196,6 +196,18 @@ public class archieBaseListener implements archieListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterReturnElement(archieParser.ReturnElementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitReturnElement(archieParser.ReturnElementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIf(archieParser.IfContext ctx) { }
 	/**
 	 * {@inheritDoc}

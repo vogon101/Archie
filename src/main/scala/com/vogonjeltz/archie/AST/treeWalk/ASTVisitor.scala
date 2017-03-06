@@ -38,6 +38,8 @@ abstract class ASTVisitor[T] {
 
   def visitWhile(whileLoop: WhileLoop) = default(whileLoop)
 
+  def visitReturn(returnElement: ReturnElement) = default(returnElement)
+
 }
 
 abstract class ASTTransformVisitor[R <: Line] extends ASTVisitor[Line] {

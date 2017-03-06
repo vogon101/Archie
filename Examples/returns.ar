@@ -1,0 +1,10 @@
+myFunction = () => {
+    println("Starting Function")
+    return 2
+    println("This shouldn't run")
+    3
+}
+
+
+println("Did it work " + if (myFunction() == 2) "YES" else "NO")
+println(myFunction())

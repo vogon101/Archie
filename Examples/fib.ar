@@ -1,5 +1,5 @@
 fib = (n) => {
-    if (n.equals(1)) 1
+    if (n == 1) 1
     else n + fib(n - 1)
 }
 

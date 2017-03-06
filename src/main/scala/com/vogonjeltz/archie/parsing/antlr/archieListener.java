@@ -180,6 +180,18 @@ public interface archieListener extends ParseTreeListener {
 	 */
 	void exitFunctionLiteral(archieParser.FunctionLiteralContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code returnElement}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturnElement(archieParser.ReturnElementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code returnElement}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturnElement(archieParser.ReturnElementContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code if}
 	 * labeled alternative in {@link archieParser#element}.
 	 * @param ctx the parse tree

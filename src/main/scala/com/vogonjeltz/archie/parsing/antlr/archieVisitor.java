@@ -112,6 +112,13 @@ public interface archieVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunctionLiteral(archieParser.FunctionLiteralContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code returnElement}
+	 * labeled alternative in {@link archieParser#element}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnElement(archieParser.ReturnElementContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code if}
 	 * labeled alternative in {@link archieParser#element}.
 	 * @param ctx the parse tree

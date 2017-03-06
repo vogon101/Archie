@@ -119,4 +119,10 @@ class ElementVisitor extends ArchieVisitor[Element]{
     WhileLoop(condition, loop)
   }
 
+  override def visitReturnElement(ctx: ReturnElementContext): Element = {
+    implicit val sc = SourceReference(ctx.start.getLine,ctx.getText)
+    val value = ctx.element().accept(this)
+    ReturnElement(value)
+  }
+
 }

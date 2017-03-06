@@ -97,11 +97,15 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
     val scopeStack: ScopeStack = new ScopeStack(None, function.container.map(_.scope))
     scopeStack.pushScope(scope)
 
-    function match {
-      case f: ArchieFunctionAdapter =>
-        context.scopeStack.push(scopeStack)(f.f)
-      case f: ArchieElementFunction =>
-        context.scopeStack.push[Option[ArchieInstance]](scopeStack)((S: Scope) => f.e.accept(this))
+    try {
+      function match {
+        case f: ArchieFunctionAdapter =>
+          context.scopeStack.push(scopeStack)(f.f)
+        case f: ArchieElementFunction =>
+          context.scopeStack.push[Option[ArchieInstance]](scopeStack)((S: Scope) => f.e.accept(this))
+      }
+    } catch {
+      case ret: ReturnException => ret.value
     }
   }
 
@@ -205,6 +209,10 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
     }
     if (condition.isEmpty) throw new Exception("None or non-boolean encountered in condition of while loop")
     None
+  }
+
+  override def visitReturn(returnElement: ReturnElement) = {
+    throw new ReturnException(returnElement.value.accept(this))
   }
 
 }

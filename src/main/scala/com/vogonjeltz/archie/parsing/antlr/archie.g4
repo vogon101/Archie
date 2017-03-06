@@ -27,6 +27,7 @@ element
  | IF O_R_BRACK element C_R_BRACK ('\n')? element ('\n' | ';')? ELSE element #elseElement
  | IF O_R_BRACK element C_R_BRACK ('\n')? element              #if
  | WHILE O_R_BRACK element C_R_BRACK ('\n')? element           #whileElement
+ | RETURN element                                              #returnElement
  | identifier                                                  #textID
  | element  (DOT name)+                                        #combinedID//CombinedID
  | instantiation                                               #newObj
@@ -61,6 +62,7 @@ IF: 'if';
 ELSE: 'else';
 CLASS: 'class';
 WHILE: 'while';
+RETURN: 'return';
 
 fragment ESCAPED_QUOTE : '\\"';
 STRING_LITERAL_TOKEN :   '"' ( ESCAPED_QUOTE | ~('\n'|'\r') )*? '"';
@@ -75,7 +77,7 @@ NUMERIC: [0-9];
 FARROW: '=>';
 WS: [ \t]+ -> skip;
 SKP: [\r]+ -> skip;
-COMMENT: '//' ~[\n] '\n'+;
+COMMENT: '//' (~[\n])+ '\n'+;
 
 DOT: '.';
 COMMA: ',';

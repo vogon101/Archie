@@ -38,6 +38,7 @@ class ArchieType(val name: String, val paramNames: List[String], val instantiati
   "hashCode" >>> Lazy (S(hashCode().toString))
   "typeName" >>> Lazy (S(name))
   "equals"   >>> Lazy (List("that") $ archieEquals)
+  "=="       >>> Lazy (List("that") $ archieEquals)
 
   //println(s"Archie type created $name")
 

@@ -1,0 +1,40 @@
+class MyClass (name) {
+
+    println("Creating MyClass, name: " + name)
+
+    toString = () => "My Class" + name
+    equals = () => {
+        println("EQ override")
+    }
+
+    thisCheck = () => {
+
+        println(name)
+        println(this.name)
+        println(this)
+
+    }
+
+    apply = () => {
+
+        println("Apply called on MyClass with name: " +name)
+
+    }
+
+}
+
+function = (instance) => {
+
+    println(instance)
+    println(myInstance)
+
+}
+
+myInstance = new MyClass("Freddie")
+println(myInstance)
+myInstance.thisCheck()
+myInstance()
+function("abc")
+myInstance.equals()
+//TODO: Scopes for while and if?
+//TODO: fix override
