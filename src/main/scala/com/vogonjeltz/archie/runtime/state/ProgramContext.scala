@@ -42,8 +42,8 @@ class ProgramContext(val interpreter: Interpreter) {
 
   //TODO: Refactor into a Library class
   def loadLibrary(lib: Library): Unit = {
-    lib.types.foreach(T => scopeStack.set(T.name, T.wrapper))
-    lib.instances.foreach(I => scopeStack.set(I._1, I._2))
+    lib.types.foreach(T => scopeStack.setBottom(T.name, T.wrapper))
+    lib.instances.foreach(I => scopeStack.setBottom(I._1, I._2))
   }
 
   def addLib(name: String, lib:Library) = {

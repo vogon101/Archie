@@ -1,0 +1,2 @@
+function = (name) => (age) => "Hello " + age + " who is " + age
+println(function ("Freddie")(17))

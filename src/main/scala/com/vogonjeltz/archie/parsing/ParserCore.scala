@@ -15,16 +15,21 @@ import scala.collection.mutable.ListBuffer
   */
 class ParserCore(private var _text: String) {
 
-  val text: String = _text + "\n"
-  private val in = new ANTLRInputStream(text)
+  private var in = new ANTLRInputStream(text)
 
-  lazy val parsed: AST = {
+  def updateText(new_text: String) = {
+    _text = new_text + "\n"
+    in = new ANTLRInputStream(text)
+  }
+  def text = _text
+
+  def parsed: AST = {
     val parser = new archieParser(tokens)
     val visitor = new ProgramVisitor()
     parser.program().accept(visitor)
   }
 
-  lazy val tokens: CommonTokenStream = {
+  def tokens: CommonTokenStream = {
     val lexer = new archieLexer(in)
     new CommonTokenStream(lexer)
   }

@@ -11,4 +11,4 @@ libraryDependencies += "com.lihaoyi" % "fastparse_2.11" % "0.4.2"
 libraryDependencies += "org.antlr" % "antlr4-runtime" % "4.6"
 
 
-mainClass in (Compile, run) := Some("com.vogonjeltz.archie.app.SimpleFileApp")
+mainClass in (Compile, run) := Some("com.vogonjeltz.archie.app.ConsoleApp")

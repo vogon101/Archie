@@ -1,0 +1,5 @@
+utils = import("utils")
+require!("utils")
+println(utils)
+utils.testFunction()
+testFunction()

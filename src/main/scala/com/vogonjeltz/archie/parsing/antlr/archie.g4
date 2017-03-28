@@ -52,27 +52,30 @@ value
 
 
 
-booleanLiteral: 'true' | 'false';
+booleanLiteral: BOOLEAN_LITERAL_TOKEN;
 stringLiteral: STRING_LITERAL_TOKEN;
-floatLiteral: NUMERIC+ ( ( (DOT NUMERIC+) ('f' | 'F')? ) | ('f' | 'F') );
-integerLiteral: NUMERIC+;
+floatLiteral: FLOAT_LITERAL;
+integerLiteral: INTEGER_LITERAL;
 name: ALPHA_NUMERIC_NAME | SYMBOL | EQ (EQ)+;
 
+//Lexer rules
 IF: 'if';
 ELSE: 'else';
 CLASS: 'class';
 WHILE: 'while';
 RETURN: 'return';
+BOOLEAN_LITERAL_TOKEN: 'true' | 'false';
 
 fragment ESCAPED_QUOTE : '\\"';
 STRING_LITERAL_TOKEN :   '"' ( ESCAPED_QUOTE | ~('\n'|'\r') )*? '"';
 
-ALPHA_NUMERIC_NAME: [A-Za-z_][A-Za-z0-9_]*;
+ALPHA_NUMERIC_NAME: [A-Za-z_][A-Za-z0-9_]*'!'?;
 SYMBOL: [~!$^*&+#<>?|\-]+;
 
-CLASS_NAME: [A-Za-z_][A-Za-z0-9_]*;
 
-NUMERIC: [0-9];
+fragment NUMERIC: [0-9];
+INTEGER_LITERAL: NUMERIC+;
+FLOAT_LITERAL: NUMERIC+ (((DOT NUMERIC+) ('f' | 'F')?) | ('f' | 'F'));
 
 FARROW: '=>';
 WS: [ \t]+ -> skip;

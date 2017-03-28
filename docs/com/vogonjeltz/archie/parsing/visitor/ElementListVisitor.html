@@ -1,0 +1,903 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>ElementListVisitor - Archie documentation - com.vogonjeltz.archie.parsing.visitor.ElementListVisitor</title>
+          <meta name="description" content="ElementListVisitor - Archie documentation - com.vogonjeltz.archie.parsing.visitor.ElementListVisitor" />
+          <meta name="keywords" content="ElementListVisitor Archie documentation com.vogonjeltz.archie.parsing.visitor.ElementListVisitor" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'com.vogonjeltz.archie.parsing.visitor.ElementListVisitor';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="com">com</a>.<a href="../../../package.html" class="extype" name="com.vogonjeltz">vogonjeltz</a>.<a href="../../package.html" class="extype" name="com.vogonjeltz.archie">archie</a>.<a href="../package.html" class="extype" name="com.vogonjeltz.archie.parsing">parsing</a>.<a href="package.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor">visitor</a></p>
+        <h1>ElementListVisitor</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ElementListVisitor</span><span class="result"> extends <a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]]</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]], <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor">archieBaseVisitor</span>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]], <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieVisitor">archieVisitor</span>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]], <span class="extype" name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor">AbstractParseTreeVisitor</span>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]], <span class="extype" name="org.antlr.v4.runtime.tree.ParseTreeVisitor">ParseTreeVisitor</span>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="com.vogonjeltz.archie.parsing.visitor.ElementListVisitor"><span>ElementListVisitor</span></li><li class="in" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor"><span>ArchieVisitor</span></li><li class="in" name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor"><span>archieBaseVisitor</span></li><li class="in" name="com.vogonjeltz.archie.parsing.antlr.archieVisitor"><span>archieVisitor</span></li><li class="in" name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor"><span>AbstractParseTreeVisitor</span></li><li class="in" name="org.antlr.v4.runtime.tree.ParseTreeVisitor"><span>ParseTreeVisitor</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="com.vogonjeltz.archie.parsing.visitor.ElementListVisitor#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(elementVisitor:com.vogonjeltz.archie.parsing.visitor.ElementVisitor):com.vogonjeltz.archie.parsing.visitor.ElementListVisitor"></a>
+      <a id="&lt;init&gt;:ElementListVisitor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ElementListVisitor</span><span class="params">(<span name="elementVisitor">elementVisitor: <a href="ElementVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ElementVisitor">ElementVisitor</a></span>)</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor#aggregateResult" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="aggregateResult(x$1:T,x$2:T):T"></a>
+      <a id="aggregateResult(List[Element],List[Element]):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">aggregateResult</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>, <span name="arg1">arg1: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../org$antlr$v4$runtime$tree.html" class="extype" name="org.antlr.v4.runtime.tree">org.antlr.v4.runtime.tree</a>] </dd><dt>Definition Classes</dt><dd>AbstractParseTreeVisitor</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor#defaultResult" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="defaultResult():T"></a>
+      <a id="defaultResult():List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">defaultResult</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../org$antlr$v4$runtime$tree.html" class="extype" name="org.antlr.v4.runtime.tree">org.antlr.v4.runtime.tree</a>] </dd><dt>Definition Classes</dt><dd>AbstractParseTreeVisitor</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor#shouldVisitNextChild" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="shouldVisitNextChild(x$1:org.antlr.v4.runtime.tree.RuleNode,x$2:T):Boolean"></a>
+      <a id="shouldVisitNextChild(RuleNode,List[Element]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">shouldVisitNextChild</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.antlr.v4.runtime.tree.RuleNode">RuleNode</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../org$antlr$v4$runtime$tree.html" class="extype" name="org.antlr.v4.runtime.tree">org.antlr.v4.runtime.tree</a>] </dd><dt>Definition Classes</dt><dd>AbstractParseTreeVisitor</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor#visit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visit(x$1:org.antlr.v4.runtime.tree.ParseTree):T"></a>
+      <a id="visit(ParseTree):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visit</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.antlr.v4.runtime.tree.ParseTree">ParseTree</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractParseTreeVisitor → ParseTreeVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitAssignment" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitAssignment(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.AssignmentContext):T"></a>
+      <a id="visitAssignment(AssignmentContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitAssignment</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.AssignmentContext">AssignmentContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitBooleanLiteral" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitBooleanLiteral(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.BooleanLiteralContext):T"></a>
+      <a id="visitBooleanLiteral(BooleanLiteralContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitBooleanLiteral</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.BooleanLiteralContext">BooleanLiteralContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitBracketedElement" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitBracketedElement(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.BracketedElementContext):T"></a>
+      <a id="visitBracketedElement(BracketedElementContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitBracketedElement</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.BracketedElementContext">BracketedElementContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor#visitChildren" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitChildren(x$1:org.antlr.v4.runtime.tree.RuleNode):T"></a>
+      <a id="visitChildren(RuleNode):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitChildren</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.antlr.v4.runtime.tree.RuleNode">RuleNode</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractParseTreeVisitor → ParseTreeVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitClassDef" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitClassDef(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.ClassDefContext):T"></a>
+      <a id="visitClassDef(ClassDefContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitClassDef</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.ClassDefContext">ClassDefContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitClassHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitClassHeader(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.ClassHeaderContext):T"></a>
+      <a id="visitClassHeader(ClassHeaderContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitClassHeader</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.ClassHeaderContext">ClassHeaderContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitCodeBlock" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitCodeBlock(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.CodeBlockContext):T"></a>
+      <a id="visitCodeBlock(CodeBlockContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitCodeBlock</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.CodeBlockContext">CodeBlockContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitCombinedID" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitCombinedID(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.CombinedIDContext):T"></a>
+      <a id="visitCombinedID(CombinedIDContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitCombinedID</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.CombinedIDContext">CombinedIDContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.visitor.ElementListVisitor#visitElementList" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitElementList(ctx:com.vogonjeltz.archie.parsing.antlr.archieParser.ElementListContext):List[com.vogonjeltz.archie.AST.tree.Element]"></a>
+      <a id="visitElementList(ElementListContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitElementList</span><span class="params">(<span name="ctx">ctx: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.ElementListContext">ElementListContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ElementListVisitor">ElementListVisitor</a> → archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitElseElement" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitElseElement(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.ElseElementContext):T"></a>
+      <a id="visitElseElement(ElseElementContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitElseElement</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.ElseElementContext">ElseElementContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor#visitErrorNode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitErrorNode(x$1:org.antlr.v4.runtime.tree.ErrorNode):T"></a>
+      <a id="visitErrorNode(ErrorNode):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitErrorNode</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.antlr.v4.runtime.tree.ErrorNode">ErrorNode</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractParseTreeVisitor → ParseTreeVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitFloatLiteral" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitFloatLiteral(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.FloatLiteralContext):T"></a>
+      <a id="visitFloatLiteral(FloatLiteralContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitFloatLiteral</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.FloatLiteralContext">FloatLiteralContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitFunctionCall" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitFunctionCall(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.FunctionCallContext):T"></a>
+      <a id="visitFunctionCall(FunctionCallContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitFunctionCall</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.FunctionCallContext">FunctionCallContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitFunctionLiteral" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitFunctionLiteral(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.FunctionLiteralContext):T"></a>
+      <a id="visitFunctionLiteral(FunctionLiteralContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitFunctionLiteral</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.FunctionLiteralContext">FunctionLiteralContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitIdentifier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitIdentifier(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.IdentifierContext):T"></a>
+      <a id="visitIdentifier(IdentifierContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitIdentifier</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.IdentifierContext">IdentifierContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitIf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitIf(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.IfContext):T"></a>
+      <a id="visitIf(IfContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitIf</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.IfContext">IfContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitInstantiation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitInstantiation(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.InstantiationContext):T"></a>
+      <a id="visitInstantiation(InstantiationContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitInstantiation</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.InstantiationContext">InstantiationContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitIntegerLiteral" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitIntegerLiteral(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.IntegerLiteralContext):T"></a>
+      <a id="visitIntegerLiteral(IntegerLiteralContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitIntegerLiteral</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.IntegerLiteralContext">IntegerLiteralContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitLine" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitLine(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.LineContext):T"></a>
+      <a id="visitLine(LineContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitLine</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.LineContext">LineContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitLiteral" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitLiteral(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.LiteralContext):T"></a>
+      <a id="visitLiteral(LiteralContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitLiteral</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.LiteralContext">LiteralContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitName(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.NameContext):T"></a>
+      <a id="visitName(NameContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitName</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.NameContext">NameContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitNameList" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitNameList(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.NameListContext):T"></a>
+      <a id="visitNameList(NameListContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitNameList</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.NameListContext">NameListContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitNewObj" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitNewObj(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.NewObjContext):T"></a>
+      <a id="visitNewObj(NewObjContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitNewObj</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.NewObjContext">NewObjContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitOpFunctionCall" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitOpFunctionCall(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.OpFunctionCallContext):T"></a>
+      <a id="visitOpFunctionCall(OpFunctionCallContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitOpFunctionCall</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.OpFunctionCallContext">OpFunctionCallContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitProgram" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitProgram(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.ProgramContext):T"></a>
+      <a id="visitProgram(ProgramContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitProgram</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.ProgramContext">ProgramContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitReturnElement" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitReturnElement(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.ReturnElementContext):T"></a>
+      <a id="visitReturnElement(ReturnElementContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitReturnElement</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.ReturnElementContext">ReturnElementContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitStringLiteral" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitStringLiteral(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.StringLiteralContext):T"></a>
+      <a id="visitStringLiteral(StringLiteralContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitStringLiteral</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.StringLiteralContext">StringLiteralContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor#visitTerminal" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitTerminal(x$1:org.antlr.v4.runtime.tree.TerminalNode):T"></a>
+      <a id="visitTerminal(TerminalNode):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitTerminal</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.antlr.v4.runtime.tree.TerminalNode">TerminalNode</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractParseTreeVisitor → ParseTreeVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitTextID" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitTextID(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.TextIDContext):T"></a>
+      <a id="visitTextID(TextIDContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitTextID</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.TextIDContext">TextIDContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitValue" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitValue(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.ValueContext):T"></a>
+      <a id="visitValue(ValueContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitValue</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.ValueContext">ValueContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor#visitWhileElement" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visitWhileElement(x$1:com.vogonjeltz.archie.parsing.antlr.archieParser.WhileElementContext):T"></a>
+      <a id="visitWhileElement(WhileElementContext):List[Element]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitWhileElement</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieParser.WhileElementContext">WhileElementContext</span></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>archieBaseVisitor → archieVisitor</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">
+              <h3>Inherited from <a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]]</h3>
+            </div><div class="parent" name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor">
+              <h3>Inherited from <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor">archieBaseVisitor</span>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]]</h3>
+            </div><div class="parent" name="com.vogonjeltz.archie.parsing.antlr.archieVisitor">
+              <h3>Inherited from <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieVisitor">archieVisitor</span>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]]</h3>
+            </div><div class="parent" name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor">
+              <h3>Inherited from <span class="extype" name="org.antlr.v4.runtime.tree.AbstractParseTreeVisitor">AbstractParseTreeVisitor</span>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]]</h3>
+            </div><div class="parent" name="org.antlr.v4.runtime.tree.ParseTreeVisitor">
+              <h3>Inherited from <span class="extype" name="org.antlr.v4.runtime.tree.ParseTreeVisitor">ParseTreeVisitor</span>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]]</h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../lib/template.js"></script>
+    </body>
+      </html>

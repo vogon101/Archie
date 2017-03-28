@@ -28,6 +28,14 @@ class Interpreter(val logLevel: Int = 0) extends ASTVisitor[Option[ArchieInstanc
     }
   }
 
+  def visitASTKeepLast(ast:AST): Option[ArchieInstance] = {
+    try {
+      ast.lines.map(_.accept(this)).last
+    } catch {
+      case e: Exception => throw new ArchieException(e.getMessage, context.sourceRefs, e)
+    }
+  }
+
   //Lines
   override def visitClassDef(classDef: ClassDef) = {
     Log.info("Entering classdef")

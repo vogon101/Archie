@@ -1,0 +1,14 @@
+test = (n1, n2) => {n2 = "hello"; "Hello"}
+print(test(1,2))
+
+//Function Literal
+(<argument names>) => <code here>
+
+//Single line function
+(n) => n + 1
+
+//Multi-line function
+(name) => {
+    println(name)
+    println("Hello")
+}

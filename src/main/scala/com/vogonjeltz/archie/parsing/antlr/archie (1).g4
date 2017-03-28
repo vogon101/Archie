@@ -1,11 +1,11 @@
 grammar archie;
 // Parser Rules
 
-program: '\n'* line* EOF;
+program: '\n'? line* EOF;
 
 line
  : classDef '\n'+
- | element COMMENT? (';' | '\n')+
+ | element (';' | '\n')+
  | COMMENT
 
  ;
@@ -19,16 +19,21 @@ classHeader
 
 element
  : O_R_BRACK element C_R_BRACK                                 #bracketedElement
- | element name element                                        #opFunctionCall
  | element  elementList                                        #functionCall//Function Call
+ | element name element                                        #opFunctionCall
  | nameList  FARROW  element                                   #functionLiteral//Function Literal
+ | O_C_BRACK '\n'* (element (';' | '\n')+)* element? C_C_BRACK #codeBlock
+ | identifier EQ element                                       #assignment//assignment
+ | IF O_R_BRACK element C_R_BRACK ('\n')? element ('\n' | ';')? ELSE element #elseElement
+ | IF O_R_BRACK element C_R_BRACK ('\n')? element              #if
+ | WHILE O_R_BRACK element C_R_BRACK ('\n')? element           #whileElement
+ | RETURN element                                              #returnElement
  | identifier                                                  #textID
  | element  (DOT name)+                                        #combinedID//CombinedID
- | O_C_BRACK '\n'* (element (';' | '\n')+)* element? C_C_BRACK #codeBlock
  | instantiation                                               #newObj
- | identifier EQ element                                       #assignment//assignment
  | value                                                       #literal
  ;
+
 
 instantiation: 'new' name elementList;
 
@@ -45,28 +50,36 @@ value
  | booleanLiteral
  ;
 
-booleanLiteral: 'true' | 'false';
-stringLiteral: STRING_LITERAL_TOKEN;
-floatLiteral: NUMERIC+ ( ( (DOT NUMERIC+) ('f' | 'F')? ) | ('f' | 'F') );
-integerLiteral: NUMERIC+;
-name: ALPHA_NUMERIC_NAME | SYMBOL | EQ EQ+;
 
+
+booleanLiteral: BOOLEAN_LITERAL_TOKEN;
+stringLiteral: STRING_LITERAL_TOKEN;
+floatLiteral: FLOAT_LITERAL;
+integerLiteral: INTEGER_LITERAL;
+name: ALPHA_NUMERIC_NAME | SYMBOL | EQ (EQ)+;
+
+IF: 'if';
+ELSE: 'else';
 CLASS: 'class';
+WHILE: 'while';
+RETURN: 'return';
+BOOLEAN_LITERAL_TOKEN: 'true' | 'false';
 
 fragment ESCAPED_QUOTE : '\\"';
 STRING_LITERAL_TOKEN :   '"' ( ESCAPED_QUOTE | ~('\n'|'\r') )*? '"';
 
-ALPHA_NUMERIC_NAME: [A-Za-z_][A-Za-z0-9_]*;
-SYMBOL: [~!$^*&+#<>?|\\-/]+[=]*;
+ALPHA_NUMERIC_NAME: [A-Za-z_][A-Za-z0-9_]*'!'?;
+SYMBOL: [~!$^*&+#<>?|\-]+;
 
-CLASS_NAME: [A-Za-z_][A-Za-z0-9_]*;
 
-NUMERIC: [0-9];
+fragment NUMERIC: [0-9];
+INTEGER_LITERAL: NUMERIC+;
+FLOAT_LITERAL: NUMERIC+ (((DOT NUMERIC+) ('f' | 'F')?) | ('f' | 'F'));
 
 FARROW: '=>';
 WS: [ \t]+ -> skip;
 SKP: [\r]+ -> skip;
-COMMENT: '//' ~[\n] '\n'+;
+COMMENT: '//' (~[\n])+ '\n'+;
 
 DOT: '.';
 COMMA: ',';

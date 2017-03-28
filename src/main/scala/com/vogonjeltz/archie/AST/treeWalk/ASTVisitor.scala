@@ -9,7 +9,7 @@ abstract class ASTVisitor[T] {
 
   def default(e: Line): T
 
-  def visitAST(ast:AST):Any = {
+  def visitAST(ast:AST): Any = {
     ast.lines.foreach(_.accept(this))
   }
 

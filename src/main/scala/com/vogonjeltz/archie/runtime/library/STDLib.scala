@@ -7,13 +7,14 @@ import com.vogonjeltz.archie.runtime.types.LiteralInstance
   */
 object STDLib {
 
-  val coreLib = new LibraryCollection(List(
-    LiteralInstance.literalLib,
-    new STDIO
+  val coreLib = new LibraryCollection(Map(
+    "literals" -> LiteralInstance.literalLib,
+    "stdio" -> new STDIO,
+    "lists" -> new ListsLib
   ))
 
-  val stdLib = new LibraryCollection(List(
-
+  val stdLib = new LibraryCollection(Map(
+    "utils" -> new Utils
   ))
 
 }

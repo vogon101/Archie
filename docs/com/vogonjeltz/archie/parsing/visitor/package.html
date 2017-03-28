@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>visitor - Archie documentation - com.vogonjeltz.archie.parsing.visitor</title>
+          <meta name="description" content="visitor - Archie documentation - com.vogonjeltz.archie.parsing.visitor" />
+          <meta name="keywords" content="visitor Archie documentation com.vogonjeltz.archie.parsing.visitor" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'com.vogonjeltz.archie.parsing.visitor.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="com">com</a>.<a href="../../../package.html" class="extype" name="com.vogonjeltz">vogonjeltz</a>.<a href="../../package.html" class="extype" name="com.vogonjeltz.archie">archie</a>.<a href="../package.html" class="extype" name="com.vogonjeltz.archie.parsing">parsing</a></p>
+        <h1>visitor</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visitor</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ArchieVisitor[T]extendsarchieBaseVisitor[T]"></a>
+      <a id="ArchieVisitor[T]:ArchieVisitor[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ArchieVisitor.html"><span class="name">ArchieVisitor</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="com.vogonjeltz.archie.parsing.antlr.archieBaseVisitor">archieBaseVisitor</span>[<span class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Created by Freddie on 03/01/2017.</p>
+    </li><li name="com.vogonjeltz.archie.parsing.visitor.ClassDefVisitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ClassDefVisitorextendsArchieVisitor[com.vogonjeltz.archie.AST.tree.ClassDef]"></a>
+      <a id="ClassDefVisitor:ClassDefVisitor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ClassDefVisitor.html"><span class="name">ClassDefVisitor</span></a><span class="result"> extends <a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<a href="../../AST/tree/ClassDef.html" class="extype" name="com.vogonjeltz.archie.AST.tree.ClassDef">ClassDef</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="com.vogonjeltz.archie.parsing.visitor.ElementListVisitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ElementListVisitorextendsArchieVisitor[List[com.vogonjeltz.archie.AST.tree.Element]]"></a>
+      <a id="ElementListVisitor:ElementListVisitor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ElementListVisitor.html"><span class="name">ElementListVisitor</span></a><span class="result"> extends <a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<span class="extype" name="scala.List">List</span>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="com.vogonjeltz.archie.parsing.visitor.ElementVisitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ElementVisitorextendsArchieVisitor[com.vogonjeltz.archie.AST.tree.Element]"></a>
+      <a id="ElementVisitor:ElementVisitor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ElementVisitor.html"><span class="name">ElementVisitor</span></a><span class="result"> extends <a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<a href="../../AST/tree/Element.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Element">Element</a>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Created by Freddie on 03/01/2017.</p>
+    </li><li name="com.vogonjeltz.archie.parsing.visitor.LineVisitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LineVisitorextendsArchieVisitor[com.vogonjeltz.archie.AST.tree.Line]"></a>
+      <a id="LineVisitor:LineVisitor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LineVisitor.html"><span class="name">LineVisitor</span></a><span class="result"> extends <a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<a href="../../AST/tree/Line.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Line">Line</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="com.vogonjeltz.archie.parsing.visitor.LiteralVisitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LiteralVisitorextendsArchieVisitor[com.vogonjeltz.archie.AST.tree.Literal]"></a>
+      <a id="LiteralVisitor:LiteralVisitor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LiteralVisitor.html"><span class="name">LiteralVisitor</span></a><span class="result"> extends <a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<a href="../../AST/tree/Literal.html" class="extype" name="com.vogonjeltz.archie.AST.tree.Literal">Literal</a>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Created by Freddie on 03/01/2017.</p>
+    </li><li name="com.vogonjeltz.archie.parsing.visitor.NameListVisitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NameListVisitorextendsArchieVisitor[List[String]]"></a>
+      <a id="NameListVisitor:NameListVisitor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="NameListVisitor.html"><span class="name">NameListVisitor</span></a><span class="result"> extends <a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Created by Freddie on 03/01/2017.</p>
+    </li><li name="com.vogonjeltz.archie.parsing.visitor.ProgramVisitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProgramVisitorextendsArchieVisitor[com.vogonjeltz.archie.AST.tree.AST]"></a>
+      <a id="ProgramVisitor:ProgramVisitor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProgramVisitor.html"><span class="name">ProgramVisitor</span></a><span class="result"> extends <a href="ArchieVisitor.html" class="extype" name="com.vogonjeltz.archie.parsing.visitor.ArchieVisitor">ArchieVisitor</a>[<a href="../../AST/tree/AST.html" class="extype" name="com.vogonjeltz.archie.AST.tree.AST">AST</a>]</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../lib/template.js"></script>
+    </body>
+      </html>

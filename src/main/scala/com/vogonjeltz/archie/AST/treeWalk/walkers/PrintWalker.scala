@@ -4,7 +4,7 @@ import com.vogonjeltz.archie.AST.tree._
 import com.vogonjeltz.archie.AST.TreeWalk.ASTVisitor
 
 /**
-  * Created by Freddie on 03/01/2017.
+  * Allows prety-printing of ASTs
   */
 class PrintWalker extends ASTVisitor[Unit]{
 

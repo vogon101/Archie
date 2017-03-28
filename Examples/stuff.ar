@@ -1,0 +1,15 @@
+class Thing() {
+
+    function = () => println("Other Function")
+
+    return "Hello"
+
+    println("HELLO WORLD")
+
+}
+
+Thing.apply = () => new Thing()
+Thing.function = () => println("Hello world")
+
+Thing.function()
+Thing().function()

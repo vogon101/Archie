@@ -1,3 +1,4 @@
+//Define a class called Person that accepts a name and yearOfBirth to the constructor
 class Person (name, yearOfBirth) {
 
     this.age = () => {
@@ -16,10 +17,16 @@ class Person (name, yearOfBirth) {
         this.yearOfBirth = this.yearOfBirth + years
     }
 
+
+    this.getName = () => name
+
 }
 
-currentYear = 2016
-freddie = new Person("Freddie", 2000)
+//Create a new function on the Person type object allowing a Person to be created without the new keyword
+Person.apply = (name, yob) => new Person(name, yob)
+
+currentYear = 2017
+freddie = Person("Freddie", 2000)
 
 println(freddie.age())
 println(freddie())
@@ -28,9 +35,5 @@ freddie.name = "Freddie Poser"
 println(freddie())
 
 newFreddie = freddie + 1
-println(freddie.yearOfBirth)
-println(newFreddie.yearOfBirth)
-
-freddie += 2
 println(freddie.yearOfBirth)
 println(newFreddie.yearOfBirth)

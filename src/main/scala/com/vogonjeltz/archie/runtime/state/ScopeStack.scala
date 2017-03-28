@@ -62,10 +62,14 @@ class ScopeStack(override val _container: Option[ArchieInstance], val baseScope:
   }
 
   def setTop(name: String, instance:ArchieInstance) = {
-    scopes.head.set(name, instance)
+    top.set(name, instance)
   }
 
+  def setBottom(name: String, instance: ArchieInstance) = bottom.set(name, instance)
+
   def top:Scope = scopes.head
+
+  def bottom: Scope = scopes.last
 
   override def toString: String = "ScopeStack (" + scopes.map(_.toString).mkString(", ") + ")"
 

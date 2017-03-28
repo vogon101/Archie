@@ -1,6 +1,7 @@
 package com.vogonjeltz.archie.runtime.library
 
-import com.vogonjeltz.archie.runtime.types.{ArchieInstance, ArchieType}
+import com.vogonjeltz.archie.runtime.state.Scope
+import com.vogonjeltz.archie.runtime.types.{ArchieInstance, ArchieType, FullArchieInstance}
 
 import scala.collection.immutable.HashMap
 
@@ -13,6 +14,8 @@ class Library(_types: List[ArchieType], _instances: Map[String, ArchieInstance])
 
   lazy val instances:Map[String, ArchieInstance] = _instances
 
+  def toInstance: ArchieInstance = new LibraryInstance(this)
+
   def this(types:List[ArchieType]) = this(types, HashMap())
 
   def this(instances: HashMap[String, ArchieInstance]) = this(List(), instances)
@@ -21,10 +24,20 @@ class Library(_types: List[ArchieType], _instances: Map[String, ArchieInstance])
 
 }
 
-class LibraryCollection(val libraries: List[Library]) extends Library {
+object LibraryType extends ArchieType("Library", List(), (s: Scope) => {})
 
-  override lazy val types: List[ArchieType] = libraries.flatMap(_.types)
+class LibraryInstance(l: Library) extends FullArchieInstance(LibraryType) {
 
-  override lazy val instances: Map[String, ArchieInstance] = libraries.flatMap(_.instances).toMap
+  for ((n,i) <- l.instances) scope.set(n, i)
+  for (t <- l.types) scope.set(t.name, t.wrapper)
+
+}
+
+
+class LibraryCollection(val libraries: Map[String, Library]) extends Library {
+
+  override lazy val types: List[ArchieType] = libraries.flatMap(_._2.types).toList
+
+  override lazy val instances: Map[String, ArchieInstance] = libraries.flatMap(_._2.instances)
 
 }
